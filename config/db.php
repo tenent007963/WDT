@@ -14,4 +14,4 @@
 define("DB_HOST", "localhost");
 define("DB_NAME", "id20524981_wdt");
 define("DB_USER", "id20524981_dbadmin");
-define("DB_PASS", "Wdt@0323");
+define("DB_PASS", "WebdevDB@0323");
