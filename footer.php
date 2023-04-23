@@ -1,4 +1,5 @@
 <?php
+$bentleyig = "//www.bentleymotors.com/content/dam/bentley/Master/Icons/new%20social%20icons/instagram-80x80.png/_jcr_content/renditions/original.image_file.80.80.file/instagram-80x80.png";
 if ($title = "index") {
     echo '
     <footer class="footer">
@@ -21,11 +22,11 @@ if ($title = "index") {
             <div class="footer-col">
             <h4>Social Links</h4>
             <div class="social-links">
-                <a href="//instagram.com/_florenceciel/">Florence Ku Xin Yee<i class="fab fa-instagram"></i></a>
-                <a href="//instagram.com/jeslyn_koeh/">Jeslyn Koeh Xin Wen<i class="fab fa-instagram"></i></a>
-                <a href="//instagram.com/kenny_loww/">Low Jia Heng Kenny<i class="fab fa-instagram"></i></a>
-                <a href="//instagram.com/cambridge_xu">Tai Eason<i class="fab fa-instagram"></i></a>
-                <a href="//instagram.com/desmonddd_yong/">Yong Hou Yan (Desmond)<i class="fab fa-instagram"></i></a>
+                <a href="//instagram.com/_florenceciel/">Florence Ku Xin Yee<img src="'{$bentleyig}'" alt="instagram-80x80.png" class="ig-icon"></a>
+                <a href="//instagram.com/jeslyn_koeh/">Jeslyn Koeh Xin Wen<img src="'{$bentleyig}' alt="instagram-80x80.png" class="ig-icon"></a>
+                <a href="//instagram.com/kenny_loww/">Low Jia Heng Kenny<img src="'{$bentleyig}' alt="instagram-80x80.png" class="ig-icon"></a>
+                <a href="//instagram.com/cambridge_xu">Tai Eason<img src="'{$bentleyig}' alt="instagram-80x80.png" class="ig-icon"></a>
+                <a href="//instagram.com/desmonddd_yong/">Yong Hou Yan (Desmond)<img src="'{$bentleyig}' alt="instagram-80x80.png" class="ig-icon"></a>
             </div>
             </div>
         </div>
