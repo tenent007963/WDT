@@ -12,5 +12,11 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?php
+        if ($title = "home") {
+            echo "<script src='./js/navbar.js'></script>
+            <link rel='stylesheet' href='./css/navbar.css' media='all'>";
+        };
+        ?>
     </head>
 
