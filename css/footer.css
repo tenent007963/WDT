@@ -36,6 +36,18 @@ ul{
   box-sizing: border-box;
   width: 50px;
 }
+
+.footer-col span {
+    font-size: 1.2em;
+    color: cornsilk;
+}
+
+.footer-col p {
+    font-size: 0.8em;
+    font-family: roboto;
+    color: tan;
+}
+
 .footer-col ul li:not(:last-child){
   margin-bottom: 10px;
 }

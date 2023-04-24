@@ -1,7 +1,7 @@
 <header id="nav-wrapper">
     <nav id="nav">
       <div class="nav left">
-        <span class="gradient skew"><h1 class="logo un-skew"><a href="#main"><img src="./images/logo.png" alt="InLine Logo"></a></h1></span>
+        <span class="gradient skew"><h1 class="logo un-skew"><a href="#main"><img class="logo-img" src="./images/no_slogan.png" alt="InLine Logo"></a></h1></span>
         <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
       </div>
       <div class="nav right">

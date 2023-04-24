@@ -22,10 +22,10 @@ include_once "./navbar.php";
         </h5>
     </div>
 
-    <div class="text-aboutus" id="aboutus">
+    <div class="col-aboutus" id="aboutus">
         <div class="wdt">
-            <img class="img-aboutus" src="./images/wdt-group.png" alt="WDT Group Photo of 5 team members">
-            <p>We are a team of five, consisting members from UCDF2111ICT and UCDF2111ICT(ITR).
+            <img class="img-aboutus" src="./images/cover1.png" alt="WDT Group Photo of 5 team members">
+            <p class="text-aboutus">We are a team of five, consisting members from UCDF2111ICT and UCDF2111ICT(ITR).
                 This topic was chosen as we have not seen any alternatives that are targeting the elders,
                 and hence we thought "Why not?" and choose to take this topic as a challenge for ourselves.</p>
         </div>

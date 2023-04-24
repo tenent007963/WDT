@@ -89,6 +89,10 @@
     text-decoration: none;
     color: #fff;
   }
+
+  img.logo-img {
+    width: 80px;
+  }
   
   .nav-link {
     text-transform: uppercase;
