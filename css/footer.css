@@ -67,7 +67,7 @@ ul{
 }
 .footer-col .social-links a{
   display: inline-block;
-  height: 45px;
+  height: 40px;
   width: 230px;
   background-color: rgba(255, 255, 255, 0.575);
   margin:0 10px 10px 0;
@@ -83,8 +83,8 @@ ul{
 }
 
 .ig-icon {
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     display: inline-block;
     float: right;
 }
