@@ -48,7 +48,7 @@ section {
     text-align: left;
     color: aliceblue ;
     background-color: gray;
-    height: 320px;
+    height: 365px;
     max-height: fit-content;
     padding: 30px;
 }
@@ -60,7 +60,7 @@ section {
 
 .img-aboutus {
     width: 50%;
-    max-height: 260px;
+    max-height: 335px;
     max-width: 445px;
     float: left;
 }
