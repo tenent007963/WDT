@@ -10,9 +10,9 @@ html {
 
 body {
     line-height: 1.5;
-    padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    padding-top: 65px;
 }
 
 button {

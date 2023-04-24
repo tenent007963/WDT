@@ -22,11 +22,11 @@ if ($title = "index") {
             <div class='footer-col'>
             <h4>Social Links</h4>
             <div class='social-links'>
-                <a href='//instagram.com/_florenceciel/'>Florence Ku Xin Yee<img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'></a>
-                <a href='//instagram.com/jeslyn_koeh/'>Jeslyn Koeh Xin Wen<img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'></a>
-                <a href='//instagram.com/kenny_loww/'>Low Jia Heng Kenny<img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'></a>
-                <a href='//instagram.com/cambridge_xu'>Tai Eason<img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'></a>
-                <a href='//instagram.com/desmonddd_yong/'>Yong Hou Yan (Desmond)<img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'></a>
+                <a href='//instagram.com/_florenceciel/'><img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Florence Ku Xin Yee</h5></a>
+                <a href='//instagram.com/jeslyn_koeh/'><img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Jeslyn Koeh Xin Wen</h5></a>
+                <a href='//instagram.com/kenny_loww/'><img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Low Jia Heng Kenny</h5></a>
+                <a href='//instagram.com/cambridge_xu'><img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Tai Eason</h5></a>
+                <a href='//instagram.com/desmonddd_yong/'><img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Yong Hou Yan</h5></a>
             </div>
             </div>
         </div>
