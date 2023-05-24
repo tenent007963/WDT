@@ -5,6 +5,7 @@ class Role
     private $db_connection = null;
     public $errors = array();
     public $messages = array();
+    private $sql = null;
 
     //construct function
     public function __construct()
@@ -71,9 +72,12 @@ class Role
 
     /*-- get all data from db, require user_name --*/
     public function getData() {
-        if ( $_GET["getData"] != "" ) {
+        if ( ($_GET["getData"] != "") &&  is_numeric($_GET["getData"]) ) {
             $sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments 
-            FROM appointment WHERE by_user = '" . $user_name . "';";
+            FROM appointment WHERE by_user = '" . $user_name . "'LIMIT " . $_GET["getData"] .";";
+        } else {
+            $sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments 
+            FROM appointment WHERE by_user = '" . $user_name . "'LIMIT 20;";
         }
     }
 }
