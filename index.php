@@ -48,8 +48,4 @@ require_once "./head.php";
 <?php
 /*-- Footer section --*/
 include_once "./footer.php" ;
-
-echo "
-
-<link rel='stylesheet' href='./css/{$file}.css' media='all'> </html>";
 ?>
