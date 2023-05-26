@@ -49,7 +49,7 @@ require_once "./head.php";
 /*-- Footer section --*/
 include_once "./footer.php" ;
 
-echo "</body>
-<script src='./js/{$file}.js'></script>
+echo "
+
 <link rel='stylesheet' href='./css/{$file}.css' media='all'> </html>";
 ?>
