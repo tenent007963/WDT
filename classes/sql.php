@@ -5,6 +5,7 @@ class Role
     private $db_connection = null;
     public $errors = array();
     public $messages = array();
+    public $xml = array();
     private $sql = null;
 
     //construct function
@@ -36,9 +37,9 @@ class Role
     /*-- to determine which interface to redirect to --*/
     public function getRole() {
         if(isset($_SESSION['user_name']) && isset($_SESSION['user_email'])) {
-            $sql = "SELECT user_role FROM users
+            $this->sql = "SELECT user_role FROM users
             WHERE user_name = '" . $user_name . "' OR user_email = '" . $user_email . "';";
-            $raw_data = $this->db_connection->query($sql);
+            $raw_data = $this->db_connection->query($this->sql);
         } else {
             $this->errors[] = "Restricted area. Please login before access.";
         }
@@ -70,14 +71,19 @@ class Role
         }    
     }
 
-    /*-- get all data from db, require user_name --*/
+    /*-- get all appointment data from db, require user_name --*/
     public function getData() {
         if ( ($_GET["getData"] != "") &&  is_numeric($_GET["getData"]) ) {
-            $sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments 
+            $this->sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments 
             FROM appointment WHERE by_user = '" . $user_name . "'LIMIT " . $_GET["getData"] .";";
+            $raw_data = $this->db_connection->query($sql);
         } else {
-            $sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments 
+            $this->sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments 
             FROM appointment WHERE by_user = '" . $user_name . "'LIMIT 20;";
+        }
+        if ( $this->sql != null ) {
+            $raw_data = $this->db_connection->query($this->sql);
+            // convert result data to xml and feed to the query page, js frontend
         }
     }
 }

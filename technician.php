@@ -8,6 +8,20 @@ if ($login->isUserLoggedIn() == false) {
     exit();
 } 
 
+/*-- show error messages --*/ //todo
+if (isset($login)) {
+    if ($login->errors) {
+        foreach ($login->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($login->messages) {
+        foreach ($login->messages as $message) {
+            echo $message;
+        }
+    }
+}
+
 /*-- header section for html prerequisite --*/
 $title = "Technician Portal";
 $file = "tech";
@@ -20,7 +34,7 @@ require_once "./head.php";
 <div class="main" id="main">
     <!-- default greeting page, to be replaced after user interact with navbar/menu -->
     <span class="greeting" id="greeting-main">
-        <h2>Welcome<?=$_SESSION['user_name']?></h2>
+        <h2>Welcome technician, <?=$_SESSION['user_name']?></h2>
         <h3>You are logged in.</h3>
 
 

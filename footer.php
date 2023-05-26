@@ -1,7 +1,8 @@
 <?php
 $bentleyig = "//www.bentleymotors.com/content/dam/bentley/Master/Icons/new%20social%20icons/instagram-80x80.png/_jcr_content/renditions/original.image_file.80.80.file/instagram-80x80.png";
 if ($title = "index") {
-    echo "
+    ?>
+    </body>
     <footer class='footer'>
         <div class='footer-container'>
         <div class='row'>
@@ -33,12 +34,15 @@ if ($title = "index") {
         </div>
     </footer>
     <link rel='stylesheet' href='./css/footer.css' media='all'>
-    ";
-} else {
-    echo "
+    <script src='./js/index.js'></script>
+    <? } else { ?>
         <footer class='footer'>
             <p>032023-MFD. All right reserved.</p>
         </footer>
         <link rel='stylesheet' href='./css/footer1.css' media='all'>
-    ";
+        <script src='./js/{$file}.js'></script>
+        //move codes
+ <?
 }
+
+?>
