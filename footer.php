@@ -61,4 +61,4 @@ switch ($file) {
         <script src='./js/tech.js'></script>
         <link rel='stylesheet' href='./css/tech.css' media='all'>
         </html>
- <? break; } ?>
+ <? break; }; ?>
