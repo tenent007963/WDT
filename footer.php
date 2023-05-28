@@ -23,11 +23,11 @@ if ($file == "index") { ?>
             <div class='footer-col'>
             <h4>Social Links</h4>
             <div class='social-links'>
-                <a href='//instagram.com/_florenceciel/'><img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Florence Ku Xin Yee</h5></a>
-                <a href='//instagram.com/jeslyn_koeh/'><img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Jeslyn Koeh Xin Wen</h5></a>
-                <a href='//instagram.com/kenny_loww/'><img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Low Jia Heng Kenny</h5></a>
-                <a href='//instagram.com/cambridge_xu'><img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Tai Eason</h5></a>
-                <a href='//instagram.com/desmonddd_yong/'><img src='{$bentleyig}' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Yong Hou Yan</h5></a>
+                <a href='//instagram.com/_florenceciel/'><img src='<?=$bentleyig?>' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Florence Ku Xin Yee</h5></a>
+                <a href='//instagram.com/jeslyn_koeh/'><img src='<?=$bentleyig?>' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Jeslyn Koeh Xin Wen</h5></a>
+                <a href='//instagram.com/kenny_loww/'><img src='<?=$bentleyig?>' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Low Jia Heng Kenny</h5></a>
+                <a href='//instagram.com/cambridge_xu'><img src='<?=$bentleyig?>' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Tai Eason</h5></a>
+                <a href='//instagram.com/desmonddd_yong/'><img src='<?=$bentleyig?>' alt='instagram-80x80.png' class='ig-icon'><h5 class='nametag'>Yong Hou Yan</h5></a>
             </div>
             </div>
         </div>
@@ -37,7 +37,7 @@ if ($file == "index") { ?>
     <link rel='stylesheet' href='./css/footer.css' media='all'>
     <script src='./js/index.js'></script>
     </html>
-    <? } elseif ($file == "customer") { ?>
+    <? exit(); } elseif ($file == "customer") { ?>
         </body>
         <footer class='footer'>
             <p>Customer Portal @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
@@ -46,7 +46,7 @@ if ($file == "index") { ?>
         <script src='./js/customer.js'></script>
         <link rel='stylesheet' href='./css/customer.css' media='all'>
         </html>
-    <? } elseif ($file == "tech") { ?>
+    <? exit(); } elseif ($file == "tech") { ?>
         </body>
         <footer class='footer'>
             <p>Technician Dashboard @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
@@ -55,4 +55,4 @@ if ($file == "index") { ?>
         <script src='./js/tech.js'></script>
         <link rel='stylesheet' href='./css/tech.css' media='all'>
         </html>
- <?php  }; ?>
+ <?php  exit(); }; ?>
