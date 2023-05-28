@@ -37,7 +37,7 @@ if ($file == "index") { ?>
     <link rel='stylesheet' href='./css/footer.css' media='all'>
     <script src='./js/index.js'></script>
     </html>
-    <? exit(); } elseif ($file == "customer") { ?>
+    <?php exit(); } elseif ($file == "customer") { ?>
         </body>
         <footer class='footer'>
             <p>Customer Portal @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
@@ -46,7 +46,7 @@ if ($file == "index") { ?>
         <script src='./js/customer.js'></script>
         <link rel='stylesheet' href='./css/customer.css' media='all'>
         </html>
-    <? exit(); } elseif ($file == "tech") { ?>
+    <?php exit(); } elseif ($file == "tech") { ?>
         </body>
         <footer class='footer'>
             <p>Technician Dashboard @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
