@@ -61,4 +61,12 @@ switch ($file) {
         <script src='./js/tech.js'></script>
         <link rel='stylesheet' href='./css/tech.css' media='all'>
         </html>
- <? break; }; ?>
+ <? break;
+    default: ?>
+         </body>
+        <footer class='footer'>
+            <p>InLine Scheduling System. 032023-MFD. All right reserved.</p>
+        </footer>
+        <link rel='stylesheet' href='./css/footer1.css' media='all'>
+        </html>
+  <? break;  }; ?>
