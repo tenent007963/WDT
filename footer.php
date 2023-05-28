@@ -1,8 +1,7 @@
 <?php
 /*-- a very ugly footer code (fuck this shit v2) --*/
 $bentleyig = "//www.bentleymotors.com/content/dam/bentley/Master/Icons/new%20social%20icons/instagram-80x80.png/_jcr_content/renditions/original.image_file.80.80.file/instagram-80x80.png";
-switch ($file) {
-    case "index":
+if ($file == "index") {
     ?>
     </body>
     <footer class='footer'>
@@ -39,9 +38,7 @@ switch ($file) {
     <link rel='stylesheet' href='./css/footer.css' media='all'>
     <script src='./js/index.js'></script>
     </html>
-    <? 
-    break;
-    case "customer": ?>
+    <? } elseif ($file == "customer") { ?>
         </body>
         <footer class='footer'>
             <p>Customer Portal @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
@@ -50,9 +47,7 @@ switch ($file) {
         <script src='./js/customer.js'></script>
         <link rel='stylesheet' href='./css/customer.css' media='all'>
         </html>
-        <? 
-    break;
-    case "tech": ?>
+        <? } elseif ($file == "tech") { ?>
     </body>
         <footer class='footer'>
             <p>Technician Dashboard @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
@@ -61,12 +56,4 @@ switch ($file) {
         <script src='./js/tech.js'></script>
         <link rel='stylesheet' href='./css/tech.css' media='all'>
         </html>
- <? break;
-    default: ?>
-         </body>
-        <footer class='footer'>
-            <p>InLine Scheduling System. 032023-MFD. All right reserved.</p>
-        </footer>
-        <link rel='stylesheet' href='./css/footer1.css' media='all'>
-        </html>
-  <? break;  }; ?>
+ <?  }; ?>
