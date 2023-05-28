@@ -1,8 +1,7 @@
 <?php
 /*-- a very ugly footer code (fuck this shit v2) --*/
 $bentleyig = "//www.bentleymotors.com/content/dam/bentley/Master/Icons/new%20social%20icons/instagram-80x80.png/_jcr_content/renditions/original.image_file.80.80.file/instagram-80x80.png";
-if ($file == "index") {
-    ?>
+if ($file == "index") { ?>
     </body>
     <footer class='footer'>
         <div class='footer-container'>
@@ -47,8 +46,8 @@ if ($file == "index") {
         <script src='./js/customer.js'></script>
         <link rel='stylesheet' href='./css/customer.css' media='all'>
         </html>
-        <? } elseif ($file == "tech") { ?>
-    </body>
+    <? } elseif ($file == "tech") { ?>
+        </body>
         <footer class='footer'>
             <p>Technician Dashboard @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
         </footer>
@@ -56,4 +55,4 @@ if ($file == "index") {
         <script src='./js/tech.js'></script>
         <link rel='stylesheet' href='./css/tech.css' media='all'>
         </html>
- <?  }; ?>
+ <?php  }; ?>
