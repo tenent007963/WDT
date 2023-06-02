@@ -13,18 +13,23 @@ if (isset($login)) {
     }
 }
 ?>
+<!-- css styling -->
+<link rel='stylesheet' href='./css/form.css' media='all'>
 
 <!-- login form box -->
-<form method="post" action="index.php" name="loginform">
+<div class="container">
+    <h1>Login</h1>
+    <form method="post" action="login.php" name="loginform">
+        <label for="login_input_username">Username</label>
+        <input id="login_input_username" class="login_input" type="text" name="user_name" class="field" placeholder="username" required />
 
-    <label for="login_input_username">Username</label>
-    <input id="login_input_username" class="login_input" type="text" name="user_name" required />
+        <label for="login_input_password">Password</label>
+        <input id="login_input_password" class="login_input" type="password" name="user_password" class="field" placeholder="password" required />
 
-    <label for="login_input_password">Password</label>
-    <input id="login_input_password" class="login_input" type="password" name="user_password" autocomplete="off" required />
+        <input type="submit"  name="login" value="Log in" class="btn" />
+    </form>
 
-    <input type="submit"  name="login" value="Log in" />
-
-</form>
-
-<a href="register.php">Register new account</a>
+    <div class="reg">
+        <a href="register.php">Register new account</a>
+    </div>	
+</div>
