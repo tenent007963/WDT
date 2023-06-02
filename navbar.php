@@ -12,5 +12,9 @@ if ($file = "customer") { ?>
 
 <?php }; ?> 
 <header class="navbar">
-
+      <div class="logo"></div>
+      <div class="quick btn"></div>
+      <div class="support btn"></div>
+      <div class="account btn"></div>
+      <a href="/views/index.php?logout"><div class="logout btn"></div></a>
 </header>
