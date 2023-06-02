@@ -35,6 +35,12 @@ require_once "./head.php";
     <!-- default greeting page, to be replaced after user interact with navbar/menu -->
     <span class="greeting" id="greeting-main">
         <h2>Welcome technician, <?=$_SESSION['user_name']?></h2>
-        <h3>You are logged in.</h3>
+        <h3>Start your tasks by selecting actions from the left panel.</h3>
+    </span>
+</div>
+
+<?php
+require_once "./footer.php";
+?>
 
 

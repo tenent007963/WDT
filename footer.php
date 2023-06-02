@@ -1,5 +1,5 @@
 <?php
-/*-- a very ugly footer code (fuck this shit v2) --*/
+/*-- a very ugly footer code (fuck this shit v2.6) --*/
 $bentleyig = "//www.bentleymotors.com/content/dam/bentley/Master/Icons/new%20social%20icons/instagram-80x80.png/_jcr_content/renditions/original.image_file.80.80.file/instagram-80x80.png";
 if ($file == "index") { ?>
     </body>
