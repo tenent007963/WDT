@@ -1,20 +1,20 @@
 <?php
-#navbar for users to perform user account related actions, eg logout & modify details
-#logo included at left side
 $user = $_SESSION['user_name'];
+$welcome = null;
 echo "<script src='/js/navbar.js'></script>
       <link rel='stylesheet' href='/css/navbar.css' media='all'>"; 
-if ($file = "customer") { ?>
-   
-<?php } elseif ($file = "technician") { ?>
-
-<?php } else { ?>
-
-<?php }; ?> 
+if ($file = "customer") { 
+      $welcome = "Welcome user, " . $user;
+} elseif ($file = "technician") { 
+      $welcome = "Welcome tech, " . $user;
+} else { 
+      header("Location: login.php");
+      die();
+}; ?> 
 <header class="navbar">
       <div class="logo"></div>
-      <div class="quick btn"></div>
-      <div class="support btn"></div>
-      <div class="account btn"></div>
-      <a href="/views/index.php?logout"><div class="logout btn"></div></a>
+      <a href="/login.php?logout"><div class="logout"></div></a>
+      <a onclick="accountbtn()"><div class="account"></div></a>
+      <a onclick="supportbtn()"><div class="support"></div></a>
+      <a onclick="quickbtn()"><div class="quick"></div></a>
 </header>
