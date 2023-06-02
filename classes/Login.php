@@ -87,6 +87,7 @@ class Login
                         $_SESSION['user_email'] = $result_row->user_email;
                         $_SESSION['user_login_status'] = 1;
 
+                        // Need to give the damn cookie as well if possible
                     } else {
                         $this->errors[] = "Wrong password. Try again.";
                     }
