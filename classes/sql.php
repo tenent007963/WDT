@@ -3,6 +3,7 @@
 class Role
 {
     private $db_connection = null;
+    private $result_data = null;
     public $errors = array();
     public $messages = array();
     public $xml = array();
@@ -48,42 +49,59 @@ class Role
             if ($raw_data->num_rows == 1) {
                 $result_data = $raw_data->fetch_object();
                 if ($result_data->user_role != null ) {
-                    switch($result_data->user_role) {
-                        case 1:
-                            header("Location: customer.php");
-                            exit();
-                            break;
-                        case 2:
-                            header("Location: technician.php");
-                            exit();
-                            break;
-                        default:
-                            header("Location: index.php");
-                            exit();
-                            break;
-                    }
+                    return $result_data->user_role;
                 } else {
                     $this->errors[] = "An error occurred. Please login again.";
                 }
             }
         } else {
             $this->errors[] = "Database connection problem.";
-        }    
+        }
     }
 
     /*-- get all appointment data from db, require user_name --*/
     public function getData() {
         if ( ($_GET["getData"] != "") &&  is_numeric($_GET["getData"]) ) {
-            $this->sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments 
+            $this->sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments
             FROM appointment WHERE by_user = '" . $user_name . "'LIMIT " . $_GET["getData"] .";";
             $raw_data = $this->db_connection->query($sql);
         } else {
-            $this->sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments 
+            $this->sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments
             FROM appointment WHERE by_user = '" . $user_name . "'LIMIT 20;";
         }
         if ( $this->sql != null ) {
             $raw_data = $this->db_connection->query($this->sql);
             // convert result data to xml and feed to the query page, js frontend
+        }
+    }
+
+    // initiating redirect after login
+    public function postLogin() {
+        if ($this->getRole() != null) {
+            redirecting();
+            return 0;
+        }
+    }
+
+    // send header to redirect to specific interface
+    private function redirecting() {
+        switch ($result_data->user_role) {
+            case 0:
+                header("LocationL admin.php");
+                exit();
+                break;
+            case 1:
+                header("Location: customer.php");
+                exit();
+                break;
+            case 2:
+                header("Location: technician.php");
+                exit();
+                break;
+            default:
+                header("Location: index.php");
+                exit();
+                break;
         }
     }
 }
