@@ -11,7 +11,7 @@ if ($file = "customer") {
       die();
 } ?>
 
-<link rel='stylesheet' href='/css/navbar.css' media='all'>
+<link rel='stylesheet' href='/css/2in1.css' media='all'>
 <header class="navbar">
       <div class="logo"></div>
       <div class="hello"><h3><?=$hello?></h3></div>

@@ -1,10 +1,7 @@
-<?php 
-// diff menu for customer and technician
-
+<?php
 /*-- redundant login check before loading anything --*/
 require_once("config/db.php");
 require_once("classes/Login.php");
-require_once("classes/sql.php");
 $login = new Login();
 if ($login->isUserLoggedIn() == false) {
     header("Location: https://wdt.svrcd.xyz/login.php");

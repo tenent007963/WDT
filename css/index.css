@@ -232,8 +232,9 @@ section {
     color: aliceblue ;
     background-color: gray;
     height: 390px;
-    max-height: fit-content;
     padding: 30px;
+    display: block;
+    overflow: auto;
 }
 
 .text-aboutus {
