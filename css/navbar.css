@@ -51,4 +51,8 @@
     content:url(http://placehold.it/55x55);
   }
   
+  .navbar .hello {
+    text-align: center;
+    color: cadetblue;
+  }
   

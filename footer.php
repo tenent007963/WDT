@@ -33,8 +33,10 @@
             </div>
         <?php } elseif ($file == "customer") { ?>
             <p>Customer Portal @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
+            <span class="sid"><?=htmlspecialchars(session_id());?></span>
         <?php } elseif ($file == "tech") { ?>
             <p>Technician Dashboard @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
+            <span class="sid"><?=htmlspecialchars(session_id());?></span>
     <?php } ?>
     </footer>
     </body>

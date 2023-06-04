@@ -39,9 +39,13 @@ require_once "./head.php";
     <div class="col-aboutus" id="aboutus">
         <div class="wdt">
             <img class="img-aboutus" src="./images/group.jpeg" alt="WDT Group Photo of 5 team members">
-            <p class="text-aboutus">We are a team of five, consisting members from UCDF2111ICT and UCDF2111ICT(ITR).
-                This topic was chosen as we have not seen any alternatives that are targeting the elders,
-                and hence we thought "Why not?" and choose to take this topic as a challenge for ourselves.</p>
+            <p class="text-aboutus">We are a group of passionate students originally from Asia Pacific University (APU) and is composed of five members from UCDF2111ICT and UCDF2111ICT(ITR). 
+              Upon forming the team, we have one vision and mission in mind, which is to smallen the gap between the elderly and technology whilst using technology to help them solve daily matters. 
+              We noticed that many elders struggle with basic tasks like making appointments or shopping online due to their limited familiarity with technology. 
+              Motivated by the desire to make a positive impact, we enthusiastically accepted the challenge. Our primary objectives are not only to enhance our own skills and create a valuable portfolio for our future careers but, more importantly, to provide practical solutions for the elderly, helping them overcome their technological barriers. 
+              As for this case, we find out that most elderly would stay at home often and will need someone
+              to fix their home appliances if needed. By leveraging technology, we aim to simplify and streamline the process for the elderly, enabling them to perform daily tasks independently. Our ultimate goal is to empower them with the necessary tools and knowledge to navigate the digital world with confidence. 
+              Through this InLine Scheduling System project, we hope to make a meaningful difference in the lives of the elderly community and contribute to a more inclusive society.</p>
         </div>
     </div>
 

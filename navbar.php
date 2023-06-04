@@ -1,21 +1,23 @@
 <?php
 $user = $_SESSION['user_name'];
-$welcome = null;
-echo "<script src='/js/navbar.js'></script>
-      <link rel='stylesheet' href='/css/navbar.css' media='all'>";
+$hello = null;
+
 if ($file = "customer") {
-      $welcome = "Welcome user, " . $user;
+      $hello = "Hello user, " . $user;
 } elseif ($file = "technician") {
-      $welcome = "Welcome tech, " . $user;
+      $hello = "Hello tech, " . $user;
 } else {
       header("Location: login.php");
       die();
-}; ?>
+} ?>
+
+<link rel='stylesheet' href='/css/navbar.css' media='all'>
 <header class="navbar">
       <div class="logo"></div>
-      <div class="avatar"></div>
+      <div class="hello"><h3><?=$hello?></h3></div>
       <a href="/login.php?logout"><div class="logout"></div></a>
       <a onclick="loadPage('/view/account/accView.php')"><div class="account"></div></a>
       <a onclick="loadPage('/view/misc/support.php')"><div class="support"></div></a>
       <!-- <a onclick="quickAccess()"><div class="quick"></div></a> -->
 </header>
+<script src='/js/navbar.js'></script>
