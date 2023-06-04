@@ -2,12 +2,13 @@
 /*-- header section for html prerequisite --*/
 $title = "Home";
 $file = "index";
+$footer = "footer";
 require_once "./head.php";
 ?>
 
 <!-- Body section -->
 <body>
- <header id="nav-wrapper">
+  <header id="nav-wrapper">
     <nav id="nav">
       <div class="nav left">
         <span class="gradient skew"><h1 class="logo un-skew"><a href="#main"><img class="logo-img" src="./images/icon-small.png" alt="InLine Logo"></a></h1></span>

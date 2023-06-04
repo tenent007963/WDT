@@ -25,19 +25,20 @@ if (isset($login)) {
 /*-- header section for html prerequisite --*/
 $title = "Technician Portal";
 $file = "tech";
+$footer = "footer1";
 require_once "./head.php";
 ?>
 <!-- body section -->
 <body>
-<?php require_once "./navbar.php"; require_once "./menu.php";?>
+    <?php require_once "./navbar.php"; require_once "./menu.php";?>
 
-<div class="main" id="main">
-    <!-- default greeting page, to be replaced after user interact with navbar/menu -->
-    <span class="greeting" id="greeting-main">
-        <h2>Welcome technician, <?=$_SESSION['user_name']?></h2>
-        <h3>Start your tasks by selecting actions from the left panel.</h3>
-    </span>
-</div>
+    <div class="main" id="main">
+        <!-- default greeting page, to be replaced after user interact with navbar/menu -->
+        <span class="greeting" id="greeting-main">
+            <h2>Welcome technician, <?=$_SESSION['user_name']?></h2>
+            <h3>Start your tasks by selecting actions from the left panel.</h3>
+        </span>
+    </div>
 
 <?php
 require_once "./footer.php";

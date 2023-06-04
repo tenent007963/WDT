@@ -25,11 +25,12 @@ if (isset($login)) {
 /*-- header section for html prerequisite --*/
 $title = "Customer Portal";
 $file = "customer";
+$footer = "footer1";
 require_once "./head.php";
 ?>
 <!-- body section -->
 <body>
-<?php require_once "./navbar.php"; require_once "./menu.php";?>
+    <?php require_once "./navbar.php"; require_once "./menu.php";?>
 
 <div class="main" id="main">
     <!-- default greeting page, to be replaced after user interact with navbar/menu -->
