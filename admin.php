@@ -4,7 +4,6 @@
 
 require_once("config/db.php");
 require_once("classes/Login.php");
-require_once("classes/sql.php");
 $login = new Login();
 if ($login->isUserLoggedIn() == false) {
     header("Location: https://wdt.svrcd.xyz/login.php");
