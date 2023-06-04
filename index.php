@@ -29,10 +29,7 @@ require_once "./head.php";
     </div>
 
     <div class="text-intro" id="intro">
-        <h5>InLine Scheduling System, designed with elders in mind,
-            is an online home repair appointment system
-            connecting elders with technicians
-            and get their home equipments repaired easily.
+        <h5>The InLine Scheduling System is an innovative online home repair appointment system ,specifically designed to cater to the needs of the elderly population, who may have limited experience with technology. Our primary goal is to provide a user-friendly interface that enables easy connection between elders and skilled technicians, facilitating convenient repairs for their home equipment. The name "InLine" signifies our commitment to being available 24/7, as we are ready to assist the elderly with any issues they may encounter, ranging from minor concerns to urgent emergencies.
         </h5>
     </div>
 
