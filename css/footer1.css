@@ -1,5 +1,10 @@
 footer {
+    margin: auto;
     text-align: center;
     font-size: 0.8em;
-    color: azure;
+    /* color: azure; */
+    bottom: 0;
+    position: absolute;
+    background-color: azure;
+    width: 99%;
 }

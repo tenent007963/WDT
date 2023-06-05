@@ -21,7 +21,7 @@ if (!$db_connection->connect_errno) {
         if ($result_data->user_role != null ) {
             switch ($result_data->user_role) {
                 case 0:
-                    header("LocationL admin.php");
+                    header("Location: admin.php");
                     exit();
                     break;
                 case 1:

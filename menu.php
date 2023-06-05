@@ -18,4 +18,4 @@ if ($login->isUserLoggedIn() == false) {
     <?php } elseif ($file == "tech") { ?>
         <a href="/views/scheduling/uptAppt.php">Update Appointment</a>
     <?php } ?>
-<div>
+    </div>
