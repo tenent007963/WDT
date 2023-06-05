@@ -5,3 +5,8 @@
     max-height: calc(98% - 65px - 82px);
     overflow: scroll;
 }
+
+.search {
+    display: block;
+    position: relative;
+}

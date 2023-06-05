@@ -19,3 +19,27 @@ function pushHTML(ref) {
     return 1;
   });
 };
+
+$('#main-form').submit(function() { // catch the form's submit event
+    $.ajax({ // create an AJAX call...
+        data: $(this).serialize(), // get the form data
+        type: $(this).attr('method'), // GET or POST
+        url: $(this).attr('action'), // the file to call
+        success: function(response) { // on success..
+            $('#main').html(response); // update the DIV
+        }
+    });
+    return false; // cancel original event to prevent form submitting
+});
+
+$('#search-form').submit(function() { // catch the form's submit event
+    $.ajax({ // create an AJAX call...
+        data: $(this).serialize(), // get the form data
+        type: $(this).attr('method'), // GET or POST
+        url: $(this).attr('action'), // the file to call
+        success: function(response) { // on success..
+            $('#main').html(response); // update the DIV
+        }
+    });
+    return false; // cancel original event to prevent form submitting
+});
