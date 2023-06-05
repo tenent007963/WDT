@@ -19,7 +19,7 @@ if (isset($_GET['sid'])) {
         exit();
     }
 
-    if (mysqli_num_rows($result) == 1) {
+    if (mysqli_num_rows($raw_data) == 1) {
         $row = mysqli_fetch_row($raw_data);
         ?>
         <form class="form-horizontal" method="post" action="/views/misc/modSymp.php" id="main-form">
@@ -70,5 +70,6 @@ if (isset($_GET['sid'])) {
         echo '<span class="msg">Multiple entries found, please specify symptom by searching the exact symptom ID.</span>';
     }
 }
+mysqli_close($db_connection);
 ?>
 

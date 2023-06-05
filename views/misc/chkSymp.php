@@ -1,5 +1,5 @@
 <?php
-require_once("../../config/db.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 //create sql statement
@@ -11,7 +11,7 @@ if ($db_connection -> connect_errno) {
     exit();
 }
 
-if (mysqli_num_rows($result) > 0) {
+if (mysqli_num_rows($raw_data) > 0) {
 
     echo '<h2> All Symptoms Indexes </h2>';
     echo '<table border=1>
@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
 }else {
     echo 'No records found';
 }
-
+mysqli_close($db_connection);
 ?>
 
      

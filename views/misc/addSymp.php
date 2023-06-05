@@ -1,6 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
-if(isset($_POST["submit"])){
+if (isset($_POST["submit"])){
     $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     $sql ="INSERT INTO `symptoms`(`symp_id`, `symp_name`, `symp_desc`)
             VALUES ('". $_POST['symp_id'] . "', '" . $_POST["symp_name"] . "','" . $_POST["symp_desc"] ."')";
@@ -10,10 +10,9 @@ if(isset($_POST["submit"])){
     } else {
         echo "<script>alert('Action failed');</script>";
     }
+    mysqli_close($db_connection);
+
 }
-
-mysqli_close($db_connection);
-
 ?>
 <link rel='stylesheet' href='/css/bootstrap.css' media='all'>
 <form class="form-horizontal" method="post" id="main-form" action="/views/misc/modSymp.php">
