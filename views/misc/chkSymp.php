@@ -1,5 +1,5 @@
 <?php
-require_once("/../../config/db.php");
+require_once($_SERVER['DOCUMENT_ROOT']."config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 //create sql statement
