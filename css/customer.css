@@ -2,6 +2,6 @@
     width: calc(98% - 230px);
     position: absolute;
     right: 5px;
-    max-height: calc(98% - 65px - 82px);
+    height: calc(97% - 65px - 85px);
     overflow: scroll;
 }

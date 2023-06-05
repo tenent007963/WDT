@@ -12,16 +12,15 @@ if ($login->isUserLoggedIn() == false) {
 if (isset($login)) {
     if ($login->errors) {
         foreach ($login->errors as $error) {
-            echo $error;
+            echo "<script>console.log('Error msg: " . $error . "' );</script>";
         }
     }
     if ($login->messages) {
         foreach ($login->messages as $message) {
-            echo $message;
+            echo "<div class='msg'>". $message . "</div>";
         }
     }
 }
-
 /*-- header section for html prerequisite --*/
 $title = "Technician Portal";
 $file = "tech";
