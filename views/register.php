@@ -38,7 +38,7 @@ if (isset($registration)) {
 
     <!-- backlink -->
     <div class="reg">
-        <a href="index.php">Back to Login Page</a>
+        <a href="/login.php">Back to Login Page</a>
     </div>	
 </div>
 

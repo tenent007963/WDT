@@ -5,22 +5,6 @@ require_once("config/db.php");
 require_once("classes/Login.php");
 //require_once("classes/sql.php"); // future improvement for minimizing
 
-/*-- show error messages --*/
-if (isset($_SESSION['user_name'])) {
-    if ($errors) {
-        foreach ($errors as $error) {
-            echo $error;
-        }
-    }
-    if ($messages) {
-        foreach ($messages as $message) {
-            echo $message;
-        }
-    }
-}
-
-
-session_start();
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $result_data = null;
 $errors = array();
@@ -28,12 +12,12 @@ $messages = array();
 $xml = array();
 $sql = null;
 
-if(isset($_SESSION['user_name']) && isset($_SESSION['user_email'])) {
+if (isset($_SESSION['user_name']) && isset($_SESSION['user_email'])) {
     $sql = "SELECT user_role FROM users
     WHERE user_name = '" . $user_name . "' OR user_email = '" . $user_email . "';";
     $raw_data = $db_connection->query($sql);
 } else {
-    $errors[] = "Restricted area. Please login before access.";
+    echo "Restricted area. Please login before access.";
 }
 
 if (!$db_connection->connect_errno) {
@@ -59,9 +43,9 @@ if (!$db_connection->connect_errno) {
                     break;
             }
         } else {
-            $errors[] = "An error occurred. Please login again.";
+            echo "An error occurred. Please login again.";
         }
     }
 } else {
-    $errors[] = "Database connection problem.";
+    echo "Database connection problem.";
 }
