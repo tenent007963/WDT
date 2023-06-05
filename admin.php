@@ -44,7 +44,7 @@ require_once "./head.php";
       <!-- <a onclick="quickAccess()"><div class="quick"></div></a> -->
       <div class="hello"><h3><?=$hello?></h3></div>
     </header>
-    <div class="sidebar" id="sidebar">
+    <div class="menu" id="menu">
         <span class="parent" id="appt">Appointment</span>
         <a href="/views/scheduling/chkAppt.php">Check Appointment</a>
         <a href="/views/scheduling/uptAppt.php">Update Appointment</a>
@@ -59,7 +59,7 @@ require_once "./head.php";
         <a href="/views/misc/modSymp.php">Modify Symptom</a>
     </div>
 
-    <div class="container" id="main">
+    <div class="main" id="main">
         <!-- default greeting page, to be replaced after user interact with navbar/menu -->
         <span class="greeting" id="greeting-main">
             <h2>Welcome admin, <?=$_SESSION['user_name']?></h2>
