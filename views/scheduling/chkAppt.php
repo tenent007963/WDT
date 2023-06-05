@@ -1,5 +1,5 @@
 <?php
-require_once("config/db.php");
+require_once("/config/db.php");
 if(isset($_POST["btnRegister"])){
     $firstname = $_POST['firstname'];
     $secondname = $_POST['secondname'];

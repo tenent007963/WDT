@@ -1,5 +1,5 @@
 <?php
-require_once("config/db.php");
+require_once("/config/db.php");
 if(isset($_POST["submit"])){
     $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     $sql ="INSERT INTO `symptoms`(`symp_id`, `symp_name`, `symp_desc`)
