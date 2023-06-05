@@ -6,15 +6,10 @@ require_once("classes/Login.php");
 //require_once("classes/sql.php"); // future improvement for minimizing
 
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-$result_data = null;
-$errors = array();
-$messages = array();
-$xml = array();
-$sql = null;
 
 if (isset($_SESSION['user_name']) && isset($_SESSION['user_email'])) {
     $sql = "SELECT user_role FROM users
-    WHERE user_name = '" . $user_name . "' OR user_email = '" . $user_email . "';";
+    WHERE user_name = '" . $_SESSION['user_name'] . "' OR user_email = '" . $_SESSION['user_email'] . "';";
     $raw_data = $db_connection->query($sql);
 } else {
     echo "Restricted area. Please login before access.";
