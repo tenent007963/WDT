@@ -28,14 +28,21 @@ if (isset($login)) {
 $title = "Admin Portal";
 $file = "admin";
 $footer = "footer1";
+$user = $_SESSION['user_name'];
+$hello = "Bonjour, ". $user;
 require_once "./head.php";
 ?>
 <!-- body section -->
 <body>
+    <link rel='stylesheet' href='./css/2in1.css' media='all'>
     <link rel='stylesheet' href='./css/<?=$file?>.css' media='all'>
-    <header class="topbar" id="topbar">
-        <div class="logo">
-            <a href="">
+    <header class="navbar">
+      <div class="logo"></div>
+      <a href="/login.php?logout"><div class="logout"></div></a>
+      <a onclick="loadPage('/view/account/accView.php')"><div class="account"></div></a>
+      <a onclick="loadPage('/view/misc/support.php')"><div class="support"></div></a>
+      <!-- <a onclick="quickAccess()"><div class="quick"></div></a> -->
+      <div class="hello"><h3><?=$hello?></h3></div>
     </header>
     <div class="sidebar" id="sidebar">
         <span class="parent" id="appt">Appointment</span>
@@ -46,6 +53,10 @@ require_once "./head.php";
         <a href="/views/users/usrView.php">View Users</a>
         <a href="/views/users/usrAdd.php">Add User</a>
         <a href="/views/users/usrMgmt.php">Manage Users</a>
+        <span class="parent" id="symp">Symptoms</span>
+        <a href="/views/misc/addSymp.php">Add New Symptom</a>
+        <a href="/views/misc/chkSymp.php">View All Symptomp</a>
+        <a href="/views/misc/modSymp.php">Modify Symptom</a>
     </div>
 
     <div class="container" id="main">
@@ -56,6 +67,7 @@ require_once "./head.php";
         </span>
     </div>
 
+    <script src='/js/navbar.js'></script>
 <?php
 require_once("footer.php");
 ?>

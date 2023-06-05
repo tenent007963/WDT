@@ -1,5 +1,5 @@
 <link rel='stylesheet' href='./css/bootstrap.css' media='all'>
-<form class="search" id="search-form" action="/views/misc/modSymp.php" method="get">
+<form class="search" id="search-form" action="/views/misc/modSymp.php" method="post">
     Search for Symptom ID : <input type="text" name="sid" >
     <input type="submit" value="Search" name="btnSearch">
 </form>
@@ -9,8 +9,8 @@
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-if (isset($_GET['sid'])) {
-    $sid = $_GET['sid'];
+if (isset($_POST['sid'])) {
+    $sid = $_POST['sid'];
     $sql = "SELECT * FROM symptoms WHERE symp_id ='$sid'";
     $raw_data = $db_connection->query($sql);
 

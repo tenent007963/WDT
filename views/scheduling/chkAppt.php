@@ -15,6 +15,19 @@ if(isset($_POST["btnRegister"])){
 
 }
 
+if ( ($_GET["getData"] != "") &&  is_numeric($_GET["getData"]) ) {
+    $this->sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments
+    FROM appointment WHERE by_user = '" . $user_name . "'LIMIT " . $_GET["getData"] .";";
+    $raw_data = $this->db_connection->query($sql);
+} else {
+    $this->sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments
+    FROM appointment WHERE by_user = '" . $user_name . "'LIMIT 20;";
+}
+if ( $this->sql != null ) {
+    $raw_data = $this->db_connection->query($this->sql);
+    // convert result data to xml and feed to the query page, js frontend
+}
+
 mysqli_close($connection);
 
 ?>

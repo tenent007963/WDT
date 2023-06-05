@@ -43,7 +43,7 @@ if (isset($_POST["submit"])){
 <div class="form-group">
   <label class="col-md-4 control-label" for="symp_desc">Symptom Description</label>
   <div class="col-md-4">
-    <textarea class="form-control" id="symp_desc" name="symp_desc">Sample description</textarea>
+    <textarea class="form-control" id="symp_desc" name="symp_desc" placeholder="Sample description"></textarea>
   </div>
 </div>
 
