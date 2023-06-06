@@ -4,14 +4,33 @@ require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $sql = 'SELECT user_name, user_email FROM users WHERE user_name="'.$_SESSION['user_name'].'";';
 
+if (isset($_POST['user_name'])) {
+  $user_id = $_POST['user_id'];
+  $user_name = $_POST('user_name');
+  $user_email = $_POST('user_email');
+  $uph = (isset($_POST['user_name'])) ? password_hash($_POST['user_password'], PASSWORD_DEFAULT) : null;
+  $query = "UPDATE `users` SET
+  `user_name`= '$user_name',
+  `user_email`= '$user_email'".
+  ($uph != null) ? ",`user_password_hash`= '$uph'" : "".
+  "WHERE user_id = '$user_id';";
+  $result = $db_connection->query($query);
+  if ($db_connection -> connect_errno) {
+    echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+  } else {
+    $_SESSION['user_name'] = $user_name;
+    $_SESSION['user_email'] = $user_email;
+    echo "<script>alert('Updated account details!');</script>";
+  }
+}
+
+
 $raw_data = $db_connection->query($sql);
 if ($db_connection -> connect_errno) {
     echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
 } else {
     $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
 }
-
-//do update
 ?>
 <form class="form-horizontal">
 <fieldset>
@@ -19,29 +38,37 @@ if ($db_connection -> connect_errno) {
 <!-- Form Name -->
 <legend>Account Details</legend>
 
-<!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="user_name">Username</label>  
+  <label class="col-md-4 control-label" for="user_name">User ID</label>
   <div class="col-md-4">
-  <input id="user_name" name="user_name" type="text" placeholder="johnwick" class="form-control input-md" required="">
+  <input id="user_name" name="user_name" type="text" value="<?=$row['user_id']?>" class="form-control input-md" disabled>
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="user_email">Email Address</label>  
-  <div class="col-md-5">
-  <input id="user_email" name="user_email" type="text" placeholder="john@gsc.com" class="form-control input-md" required="">
+  <label class="col-md-4 control-label" for="user_name">Username</label>
+  <div class="col-md-4">
+  <input id="user_name" name="user_name" type="text" value="<?=$row['user_name']?>" class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="user_password">Password</label>  
+  <label class="col-md-4 control-label" for="user_email">Email Address</label>
   <div class="col-md-5">
-  <input id="user_password" name="user_password" type="text" placeholder="passwordhere" class="form-control input-md">
+  <input id="user_email" name="user_email" type="text" value="<?=$row['user_email']?>" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="user_password">Password</label>
+  <div class="col-md-5">
+  <input id="user_password" name="user_password" type="text" placeholder="[leave blank if no change]]" class="form-control input-md">
     
   </div>
 </div>

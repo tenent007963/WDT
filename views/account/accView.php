@@ -11,7 +11,7 @@ if ($db_connection -> connect_errno) {
     $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
 }
 ?>
-<form class="form-horizontal" action="/views/account/accMgmt.php" method="post">
+<form class="form-horizontal" action="/views/account/accMgmt.php" method="get">
 <fieldset>
 
 <!-- Form Name -->
@@ -19,7 +19,7 @@ if ($db_connection -> connect_errno) {
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="user_name">Username</label>  
+  <label class="col-md-4 control-label" for="user_name">Username</label>
   <div class="col-md-4">
   <input id="user_name" name="user_name" type="text" value="<?=$row['user_name']?>" class="form-control input-md" disabled>
     
@@ -28,7 +28,7 @@ if ($db_connection -> connect_errno) {
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="user_email">Email Address</label>  
+  <label class="col-md-4 control-label" for="user_email">Email Address</label>
   <div class="col-md-5">
   <input id="user_email" name="user_email" type="text" value="<?=$row['user_email']?>" class="form-control input-md" disabled>
     
