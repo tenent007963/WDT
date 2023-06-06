@@ -1,8 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-//create sql statement
 $sql = "SELECT * FROM symptoms" ;
 $raw_data = $db_connection->query($sql);
 
@@ -14,7 +12,7 @@ if ($db_connection -> connect_errno) {
 if (mysqli_num_rows($raw_data) > 0) {
 
     echo '<h2> All Symptoms Indexes </h2>';
-    echo '<table border=1>
+    echo '<table id="symp_tab" border=1>
     <tr>
         <th>Symptom ID</th>
         <th>Symptom Name</th>
@@ -27,10 +25,9 @@ if (mysqli_num_rows($raw_data) > 0) {
         echo '<td>' .$row[1]. '</td>';
         echo '<td>' .$row[2]. '</td>';
         echo '</tr>';
-        
     }
 
-}else {
+} else {
     echo 'No records found';
 }
 mysqli_close($db_connection);

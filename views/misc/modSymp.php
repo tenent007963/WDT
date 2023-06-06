@@ -9,8 +9,19 @@
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-if (isset($_POST['sid'])) {
-    $sid = $_POST['sid'];
+if (isset($_POST['symp_id'])) {
+    $sql = 'UPDATE symptoms SET symp_name="'.$_POST["symp_name"].'",symp_desc="'.$_POST["symp_desc"].'" WHERE symp_id="'.$_POST['symp_name'].'";';
+    $raw_data = $db_connection->query($sql);
+    if ($db_connection -> connect_errno) {
+        echo "<script>alert('DB Server error:".$db_connection -> connect_error."');</script>";
+        exit();
+    } else {
+        echo "<script>alert('Data updated.');</script>";
+    }
+}
+
+if (isset($_POST['sid']) || isset($_POST['symp_id'])) {
+    $sid = isset($_POST['sid']) ? $_POST['sid'] : $_POST['symp_id'];
     $sql = "SELECT * FROM symptoms WHERE symp_id ='$sid'";
     $raw_data = $db_connection->query($sql);
 

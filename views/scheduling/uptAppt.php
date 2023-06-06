@@ -1,0 +1,142 @@
+<link rel='stylesheet' href='/css/bootstrap.css' media='all'>
+<form class="search" id="search-form" action="/views/misc/modSymp.php" method="post">
+    Search for Appointment ID or username : <input type="text" name="sid" >
+    <input type="submit" value="Search" name="btnSearch">
+</form>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
+$db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$sql = 'SELECT * FROM appointments WHERE user_name="'.$_POST["sid"].'" OR sche_id="'.$_POST["sid"].'" AND is_deleted != 1 ORDER BY date1 DESC LIMIT 1;';
+$sql1 = 'SELECT user_name FROM users WHERE role=2;';
+
+if (isset($_POST["submit"])) {
+    $sche_id = $_POST['sche_id'];
+    $date2 = $_POST['date2'];
+    $time2 = $_POST['time2'];
+    $tech_cmt = (isset($_POST['tech_cmt'])) ? $_POST['tech_cmt'] : "";
+    $appoint_to = $_POST['user_name'];
+    $status = $_POST['status'];
+    $query = "UPDATE `appointments` SET
+        `appoint_to`= '$appoint_to',
+        `date2`= '$date2',
+        `time2`= '$time2',
+        `tech_cmt`= '$tech_cmt',
+        `status`= '$status',
+        WHERE sche_id = '$sche_id';";
+    $result = $db_connection->query($query);
+    if ($db_connection -> connect_errno) {
+        echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+    } else {
+        echo "<script>alert('Updated appointment.');</script>";
+    }
+}
+
+$raw_data = $db_connection->query($sql);
+$raw_data1 = $db_connection->query($sql1);
+if (($raw_data->num_rows == 1) && ($raw_data->num_rows > 1)) {
+    $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
+    $data = mysqli_fetch_array($raw_data1);
+    ?>
+
+    <legend>Update Appointment</legend>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="sche_id">Schedule ID</label>
+    <div class="col-md-4">
+    <input id="sche_id" name="sche_id" type="text" value="<?=$row['sche_id']?>" class="form-control input-md" disabled>
+        
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="symp_is">Symptom</label>
+    <div class="col-md-4">
+    <input id="symp_id" name="symp_id" type="text" value="<?=$row['symp_id']?>" class="form-control input-md" disabled>
+        
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="date1">Appointment Date</label>
+    <div class="col-md-4">
+    <input id="date1" name="date1" type="date" class="form-control input-md" disabled value='<?=$row['date1']?>'>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="time1">Preferred Time Slot</label>
+    <div class="col-md-4">
+    <input id="time1" name="time1" type="time" value="<?=$row['time1']?>" class="form-control input-md" disabled>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="cust_cmt">Customer Comment</label>
+    <div class="col-md-4">
+        <textarea class="form-control" id="cust_cmt" name="cust_cmt" disabled><?=$row['cust_cmt']?></textarea>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="appoint_to">Technician</label>
+    <div class="col-md-4">
+    <select id="appoint_to" name="appoint_to" class="form-control input-md">
+        <?php
+        foreach ($data as $usr) { ?>
+            <option value="<?=$usr['user_name']?>"><?=$usr['user_name']?></option>
+        <?php } ?>
+    </select>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="date2">Completion Date</label>
+    <div class="col-md-4">
+    <input id="date2" name="date2" type="date" class="form-control input-md">
+        
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="time2">Completed Time</label>
+    <div class="col-md-4">
+    <input id="time2" name="time2" type="time" min="08:00" max="20:00" list="slots" class="form-control input-md">
+    <datalist id="slots">
+        <option value="08:00">
+        <option value="09:00">
+        <option value="10:00">
+        <option value="11:00">
+        <option value="12:00">
+        <option value="13:00">
+        <option value="14:00">
+        <option value="15:00">
+        <option value="16:00">
+        <option value="17:00">
+        <option value="18:00">
+        <option value="19:00">
+        <option value="20:00">
+    </datalist>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="tech_cmt">Technician Comment</label>
+    <div class="col-md-4">
+        <textarea class="form-control" id="tech_cmt" name="tech_cmt">Technician's comment</textarea>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="submit">Confirm Details?</label>
+    <div class="col-md-4">
+        <button id="submit" name="submit" class="btn btn-primary">Yes</button>
+    </div>
+    </div>
+
+    </fieldset>
+    </form>
+
+<?php
+}
+ $db_connection -> close();
+?>

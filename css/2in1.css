@@ -84,8 +84,11 @@
     border-right: 2px solid rgb(5, 68, 104);
   }
 
-
   .menu a:hover:before,
   .menu a.active:before{
     display: block;
+  }
+
+  .menu span{
+    padding:8px 30px;
   }

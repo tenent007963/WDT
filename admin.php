@@ -46,16 +46,17 @@ require_once "./head.php";
     </header>
     <div class="menu" id="menu">
         <span class="parent" id="appt">Appointment</span>
-        <a href="/views/scheduling/chkAppt.php">Check Appointment</a>
+        <a href="/views/scheduling/allAppt.php">All Appointments</a>
         <a href="/views/scheduling/uptAppt.php">Update Appointment</a>
         <a href="/views/scheduling/delAppt.php">Delete Appointment</a>
         <span class="parent" id="usrs">Users</span>
-        <a href="/views/users/usrView.php">View Users</a>
+        <a href="/views/users/usrAll.php">All Users</a>
+        <a href="/views/users/usrView.php">View User</a>
         <a href="/views/users/usrAdd.php">Add User</a>
         <a href="/views/users/usrMgmt.php">Manage Users</a>
         <span class="parent" id="symp">Symptoms</span>
         <a href="/views/misc/addSymp.php">Add New Symptom</a>
-        <a href="/views/misc/chkSymp.php">View All Symptomp</a>
+        <a href="/views/misc/chkSymp.php">View All Symptom</a>
         <a href="/views/misc/modSymp.php">Modify Symptom</a>
     </div>
 
@@ -68,6 +69,10 @@ require_once "./head.php";
     </div>
 
     <script src='/js/navbar.js'></script>
-<?php
-require_once("footer.php");
-?>
+    <footer class='footer'>
+        <p>Admin Panel @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
+        <span class="sid"><?=htmlspecialchars(session_id());?></span>
+    </footer>
+    </body>
+    <script src='./js/<?=$file?>.js'></script>
+</html>
