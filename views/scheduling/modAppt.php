@@ -1,4 +1,4 @@
-<link rel='stylesheet' href='/css/bootstrap.css' media='all'>
+<link rel='stylesheet' href='/css/bootstraped.css' media='all'>
 
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");

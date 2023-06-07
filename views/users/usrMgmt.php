@@ -1,4 +1,4 @@
-<link rel='stylesheet' href='/css/bootstrap.css' media='all'>
+<link rel='stylesheet' href='/css/bootstraped.css' media='all'>
 <form class="search" id="search-form" action="/views/users/usrView.php" method="post">
     Search for User ID or username : <input type="text" name="sid" >
     <input type="submit" value="Search" name="btnSearch">
