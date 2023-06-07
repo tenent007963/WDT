@@ -8,6 +8,8 @@
   .navbar .logo{
     padding: 10px 16px;
     float: left;
+    max-width: 50px;
+    height: 50px;
   }
   
   /* Style the links inside the navigation bar */
@@ -36,24 +38,19 @@
     content:url(http://placehold.it/50x50);
   }
   
-  .navbar a .support:before {
-    content:url(https://cdn.icon-icons.com/icons2/3106/PNG/512/question_help_icon_191660.png);
+  .navbar a .support {
     max-width: 50px;
+    height: 50px;
   }
   
-  .navbar a .account:before {
-    content:url(https://cdn2.iconfinder.com/data/icons/minimal-set-three/32/minimal-58-512.png);
+  .navbar a .account {
     max-width: 50px;
+    height: 50px;
   }
   
-  .navbar a .logout:before {
-    content:url(https://icons-for-free.com/iconfiles/png/512/simple+and+minimal+line+icons+logout-1324450547511202535.png);
+  .navbar a .logout {
     max-width: 50px;
-  }
-  
-  .navbar .logo:before {
-    content:url(https://wdt.svrcd.xyz/images/icon-small.png);
-    max-width: 50px;
+    height: 50px;
   }
   
   .navbar .hello {

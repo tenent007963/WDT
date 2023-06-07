@@ -1,8 +1,8 @@
+<?php session_start(); ?>
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-session_start();
 $sql = "SELECT * FROM symptoms" ;
 
 if (isset($_POST["submit"])) {

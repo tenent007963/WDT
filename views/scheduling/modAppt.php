@@ -1,9 +1,8 @@
+<?php session_start(); ?>
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
-
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-session_start();
 $sql = "SELECT * FROM symptoms" ;
 $sql1 = 'SELECT * FROM appointments WHERE user_name="'.$_SESSION['user_name'].'" AND is_deleted != 1 ORDER BY date1 DESC LIMIT 1;';
 

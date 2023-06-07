@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <h2> Your Appointment(s) </h2>
 <table id="appt_tab" border="1">
     <tr>
@@ -13,7 +14,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-session_start();
 $sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, symp_id
     FROM appointments WHERE by_user = '" . $_SESSION['user_name'] . "' AND is_deleted != 1 ORDER BY date1 DESC LIMIT 20;";
 $raw_data = $db_connection->query($sql);
