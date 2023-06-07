@@ -2,14 +2,13 @@
 $user = $_SESSION['user_name'];
 $hello = null;
 
-if ($file = "customer") {
-      $hello = "Hello user, " . $user;
-} elseif ($file = "technician") {
+if ($file == "customer") {
+      $hello == "Hello user, " . $user;
+}
+if ($file == "technician") {
       $hello = "Hello tech, " . $user;
-} else {
-      header("Location: login.php");
-      die();
-} ?>
+}
+?>
 
 <link rel='stylesheet' href='/css/2in1.css' media='all'>
 <header class="navbar">

@@ -40,7 +40,7 @@ if ($raw_data->num_rows > 0) {
     echo "No records found.";
 }
 
-mysqli_close($connection);
+mysqli_close($db_connection);
 
 ?>
      

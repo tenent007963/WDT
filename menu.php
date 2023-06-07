@@ -4,7 +4,8 @@
         if ($file == "customer") { ?>
         <a href="/views/scheduling/setAppt.php">Book Appointment</a>
         <a href="/views/scheduling/modAppt.php">Modify Appointment</a>
-    <?php } elseif ($file == "tech") { ?>
+    <?php }
+        if ($file == "tech") { ?>
         <a href="/views/scheduling/uptAppt.php">Update Appointment</a>
     <?php } ?>
 </div>

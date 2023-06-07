@@ -6,7 +6,7 @@ $login = new Login();
 if ($login->isUserLoggedIn() == false) {
     header("Location: https://wdt.svrcd.xyz/login.php");
     exit();
-} 
+}
 
 /*-- show error messages --*/ //todo
 if (isset($login)) {
