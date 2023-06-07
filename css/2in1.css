@@ -37,19 +37,23 @@
   }
   
   .navbar a .support:before {
-    content:url(http://placehold.it/35x35);
+    content:url(https://cdn.icon-icons.com/icons2/3106/PNG/512/question_help_icon_191660.png);
+    max-width: 50px;
   }
   
   .navbar a .account:before {
-    content:url(http://placehold.it/40x40);
+    content:url(https://cdn2.iconfinder.com/data/icons/minimal-set-three/32/minimal-58-512.png);
+    max-width: 50px;
   }
   
   .navbar a .logout:before {
-    content:url(http://placehold.it/45x45);
+    content:url(https://icons-for-free.com/iconfiles/png/512/simple+and+minimal+line+icons+logout-1324450547511202535.png);
+    max-width: 50px;
   }
   
   .navbar .logo:before {
-    content:url(http://placehold.it/55x55);
+    content:url(https://wdt.svrcd.xyz/images/icon-small.png);
+    max-width: 50px;
   }
   
   .navbar .hello {
