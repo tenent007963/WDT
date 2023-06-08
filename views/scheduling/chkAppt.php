@@ -38,7 +38,7 @@ if (!$db_connection->connect_errno) {
     echo "Database connection problem.";
 }
 
-mysqli_close($connection);
+mysqli_close($db_connection);
 
 ?>
      

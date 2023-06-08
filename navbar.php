@@ -5,7 +5,7 @@ $hello = null;
 if ($file == "customer") {
       $hello == "Hello user, " . $user;
 }
-if ($file == "technician") {
+if ($file == "tech") {
       $hello = "Hello tech, " . $user;
 }
 ?>
