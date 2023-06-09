@@ -9,8 +9,8 @@ $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 if (isset($_POST['user_id'])) { //for update
   $user_role = $_POST['user_role'];
-  $user_name = $_POST('user_name');
-  $user_email = $_POST('user_email');
+  $user_name = $_POST['user_name'];
+  $user_email = $_POST['user_email'];
   $uph = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
   $query = "UPDATE `users` SET
   `user_name`= '$user_name',
