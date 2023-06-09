@@ -19,7 +19,7 @@ if (isset($_POST['user_name'])) {
 }
 
 ?>
-<form class="form-horizontal">
+<form class="form-horizontal" id="main-form" action="/views/users/usrAdd.php" method="post">
 <fieldset>
 
 <!-- Form Name -->

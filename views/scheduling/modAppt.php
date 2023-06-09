@@ -37,7 +37,7 @@ if (($raw_data1->num_rows == 1) && ($raw_data->num_rows > 0) ){
 
 ?>
 
-<form class="form-horizontal">
+<form class="form-horizontal" id="main-form" action="/views/scheduling/modAppt.php" method="post">
 <fieldset>
 
 <!-- Form Name -->

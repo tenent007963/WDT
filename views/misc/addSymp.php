@@ -15,7 +15,7 @@ if (isset($_POST["submit"])){
 }
 ?>
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
-<form class="form-horizontal" method="post" id="main-form" action="/views/misc/modSymp.php">
+<form class="form-horizontal" method="post" id="main-form" action="/views/misc/addSymp.php">
 <fieldset>
 
 <!-- Form Name -->
