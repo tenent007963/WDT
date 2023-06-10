@@ -1,5 +1,5 @@
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
-<form class="search" id="search-form" action="/views/misc/uptAppt.php" method="post">
+<form class="search" id="search-form" action="/views/scheduling/uptAppt.php" method="post">
     Search for Appointment ID or username : <input type="text" name="sid" >
     <input type="submit" value="Search" name="btnSearch">
 </form>
@@ -37,7 +37,7 @@ if (isset($_POST["sid"])) {
         $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
         $data = mysqli_fetch_array($raw_data1);
         ?>
-        <form class="form-horizontal">
+        <form class="form-horizontal" id="main-form" action="/views/scheduling/uptAppt.php" method="post">
         <fieldset>
 
         <legend>Update Appointment</legend>

@@ -5,8 +5,8 @@ $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 if (isset($_POST['user_name'])) {
   $user_role = $_POST['user_role'];
-  $user_name = $_POST('user_name');
-  $user_email = $_POST('user_email');
+  $user_name = $_POST['user_name'];
+  $user_email = $_POST['user_email'];
   $uph = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
   $query = "INSERT INTO `users` ('user_name','user_password_hash','user_email','user_role')
     VALUES ('$user_name','$uph','$user_email','$user_role);";
@@ -19,7 +19,7 @@ if (isset($_POST['user_name'])) {
 }
 
 ?>
-<form class="form-horizontal">
+<form class="form-horizontal" id="main-form" action="/views/users/usrAdd.php" method="post">
 <fieldset>
 
 <!-- Form Name -->

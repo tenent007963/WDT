@@ -1,5 +1,5 @@
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
-<form class="search" id="search-form" action="/views/users/usrView.php" method="post">
+<form class="search" id="search-form" action="/views/users/usrMgmt.php" method="post">
     Search for User ID or username : <input type="text" name="sid" >
     <input type="submit" value="Search" name="btnSearch">
 </form>
@@ -9,8 +9,8 @@ $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 if (isset($_POST['user_id'])) { //for update
   $user_role = $_POST['user_role'];
-  $user_name = $_POST('user_name');
-  $user_email = $_POST('user_email');
+  $user_name = $_POST['user_name'];
+  $user_email = $_POST['user_email'];
   $uph = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
   $query = "UPDATE `users` SET
   `user_name`= '$user_name',
@@ -36,7 +36,7 @@ if (isset($_POST['sid'])) {
     
     if (mysqli_num_rows($raw_data) == 1) {
       $data = $result->fetch_array(MYSQLI_ASSOC); ?>
-      <form class="form-horizontal">
+      <form class="form-horizontal" id="main-form" action="/views/users/usrMgmt.php" method="post">
       <fieldset>
   
       <legend>View User Details</legend>

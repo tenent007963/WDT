@@ -7,8 +7,8 @@ $sql = 'SELECT user_name, user_email FROM users WHERE user_name="'.$_SESSION['us
 
 if (isset($_POST['user_name'])) {
   $user_id = $_POST['user_id'];
-  $user_name = $_POST('user_name');
-  $user_email = $_POST('user_email');
+  $user_name = $_POST['user_name'];
+  $user_email = $_POST['user_email'];
   $uph = (isset($_POST['user_name'])) ? password_hash($_POST['user_password'], PASSWORD_DEFAULT) : null;
   $query = "UPDATE `users` SET
   `user_name`= '$user_name',
@@ -33,7 +33,7 @@ if ($db_connection -> connect_errno) {
     $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
 }
 ?>
-<form class="form-horizontal">
+<form class="form-horizontal" id="main-form" action="/views/account/accMgmt.php" method="post">
 <fieldset>
 
 <!-- Form Name -->

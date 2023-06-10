@@ -15,7 +15,7 @@ if (isset($_POST['sche_id'])){
 
 ?>
 <link rel='stylesheet' href='./css/bootstraped.css' media='all'>
-<form class="main" id="main" action="/views/scheduling/delAppt.php" method="post">
+<form class="main" id="main-form" action="/views/scheduling/delAppt.php" method="post">
     Schedule ID for delete : <input type="text" name="sche_id" >
     <input type="submit" value="Search" name="btnSearch">
 </form>

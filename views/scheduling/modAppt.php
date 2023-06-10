@@ -31,9 +31,14 @@ $raw_data1 = $db_connection->query($sql1);
 if (($raw_data1->num_rows == 1) && ($raw_data->num_rows > 0) ){
     $options = mysqli_fetch_all($raw_data, MYSQLI_ASSOC);
     $data = mysqli_fetch_all($raw_data1, MYSQLI_ASSOC);
-    ?>
-    <form class="form-horizontal">
-    <fieldset>
+} else {
+    echo "<h2>Something went wrong, please try again.</h2>";
+}
+
+?>
+
+<form class="form-horizontal" id="main-form" action="/views/scheduling/modAppt.php" method="post">
+<fieldset>
 
     <!-- Form Name -->
     <legend>Modify Appointment</legend>

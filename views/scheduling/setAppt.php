@@ -29,7 +29,7 @@ if ($raw_data->num_rows> 0){
 
 ?>
 
-<form class="form-horizontal">
+<form class="form-horizontal" id="main-form" action="/views/scheduling/setAppt.php" method="post">
 <fieldset>
 
 <legend>Create new appointment</legend>
