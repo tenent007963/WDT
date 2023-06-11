@@ -26,17 +26,15 @@ function pushHTML(ref) {
 // defined function for form submitting due to dynamic content
 function superFancy(e) {
   e.preventDefault();
-  console.log(JSON.stringify(e));
-  console.log("fuck!");
-  let action = document.getElementById('main-form').action;
+  let form = document.getElementById('main-form');
     try {
       const xhttp = new XMLHttpRequest();
       xhttp.onload = function() {
         document.getElementById("main").innerHTML =
         this.responseText;
       }
-      xhttp.open("POST", action);
-      xhttp.send();
+      xhttp.open("POST", form.action, true);
+      xhttp.send(new FormData(form));
     }
     catch (e) {
       console.log(e.message);
