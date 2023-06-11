@@ -7,7 +7,7 @@
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["sche_id"])) {
     $sche_id = $_POST['sche_id'];
     $date2 = $_POST['date2'];
     $time2 = $_POST['time2'];

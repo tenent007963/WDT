@@ -5,7 +5,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $sql = "SELECT * FROM symptoms" ;
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["date1"])) {
     $symp_id = $_POST['symp_id'];
     $date1 = $_POST['date1'];
     $time1 = $_POST['time1'];

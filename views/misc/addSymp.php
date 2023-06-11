@@ -1,6 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
-if (isset($_POST["submit"])){
+if (isset($_POST["symp_id"])){
     $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     $sql ="INSERT INTO `symptoms`(`symp_id`, `symp_name`, `symp_desc`)
             VALUES ('". $_POST['symp_id'] . "', '" . $_POST["symp_name"] . "','" . $_POST["symp_desc"] ."')";
