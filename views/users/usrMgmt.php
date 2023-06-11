@@ -19,8 +19,12 @@ if (isset($_POST['user_id'])) { //for update
   `user_role`= '$user_role'
   WHERE user_id = '$user_id';";
   $result = $db_connection->query($query);
-  if ($db_connection -> connect_errno) {
-    echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+  if ($db_connection -> connect_errno || $db_connection -> errno) {
+    echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+    echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
+    echo "<h4>Error query:". $db_connection -> errno ."</h4>";
+    echo "<h3>System error, please try again later.</h3>";
+    exit();
   } else {
     echo "<script>alert('Updated details for user '$user_name' !');</script>";
   }
@@ -87,7 +91,7 @@ if (isset($_POST['sid'])) {
       <div class="form-group">
       <label class="col-md-4 control-label" for="submit">Everything correct?</label>
       <div class="col-md-4">
-          <button id="submit" name="submit" class="btn btn-primary">Yep</button>
+          <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Yep</button>
       </div>
       </div>
   

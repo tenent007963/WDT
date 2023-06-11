@@ -5,10 +5,14 @@ if (isset($_POST["submit"])){
     $sql ="INSERT INTO `symptoms`(`symp_id`, `symp_name`, `symp_desc`)
             VALUES ('". $_POST['symp_id'] . "', '" . $_POST["symp_name"] . "','" . $_POST["symp_desc"] ."')";
     $raw_data = $db_connection->query($sql);
-    if (!$db_connection->connect_errno) {
-        echo "<script>alert('Task completed successfully');</script>";
+    if ($db_connection -> connect_errno || $db_connection -> errno) {
+      echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+      echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
+      echo "<h4>Error query:". $db_connection -> errno ."</h4>";
+      echo "<h3>System error, please try again later.</h3>";
+      exit();
     } else {
-        echo "<script>alert('Action failed');</script>";
+        echo "<script>alert('Task completed successfully');</script>";
     }
     mysqli_close($db_connection);
 

@@ -1,18 +1,10 @@
-// jquery load method for menu: 
+// jquery load method for menu & navbar: 
 $(function() {
     $("#menu > a").click(function(e) {
         e.preventDefault(); 
         pushHTML(this.href);
     });
 });
-
-// vanilla JS method for navbar: 
-/*function loadpage(page) {
-  e.preventDefault();
-  pushHTML(page);
-  return false;
-};
-*/
 $(function() {
   $("#navbar > a").click(function(e) {
       e.preventDefault(); 
@@ -28,12 +20,14 @@ function pushHTML(ref) {
   });
 };
 
+
+// defined function for form submitting due to dynamic content
 object.onsubmit = function(){superFancy(e)};
 
 function superFancy(e) {
   e.preventDefault();
   try {
-    $.ajax({ // create an AJAX call...
+    $(this).ajax({ // create an AJAX call...
       data: $(this).serialize(), // get the form data
       type: $(this).attr('method'), // GET or POST
       url: $(this).attr('action'), // the file to call
@@ -48,6 +42,7 @@ function superFancy(e) {
   return false;
 }
 
+/*
 $('#main-form').submit(function() { // catch the form's submit event
   $.ajax({ // create an AJAX call...
       data: $(this).serialize(), // get the form data
@@ -59,3 +54,4 @@ $('#main-form').submit(function() { // catch the form's submit event
   });
   return false; // cancel original event to prevent form submitting
 });
+*/ //honestly dont think it works

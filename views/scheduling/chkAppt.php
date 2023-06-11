@@ -18,7 +18,7 @@ $sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, symp_id
     FROM appointments WHERE by_user = '" . $_SESSION['user_name'] . "' AND is_deleted != 1 ORDER BY date1 DESC LIMIT 20;";
 $raw_data = $db_connection->query($sql);
 
-if (!$db_connection->connect_errno) {
+if ((!$db_connection->connect_errno) && (!$db_connection->errno)) {
     if ($raw_data->num_rows > 0) {
         $result_data = $raw_data->fetch_object();
         echo '<tr>';

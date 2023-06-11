@@ -6,13 +6,17 @@ $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $sql = 'SELECT user_name, user_email FROM users WHERE user_name="'.$_SESSION['user_name'].'";';
 
 $raw_data = $db_connection->query($sql);
-if ($db_connection -> connect_errno) {
-    echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+if ($db_connection -> connect_errno || $db_connection -> errno) {
+  echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+  echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
+  echo "<h4>Error query:". $db_connection -> errno ."</h4>";
+  echo "<h3>System error, please try again later.</h3>";
+  exit();
 } else {
     $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
 }
 ?>
-<form class="form-horizontal" action="/views/account/accMgmt.php" method="get">
+<form class="form-horizontal" action="/views/account/accMgmt.php" method="post">
 <fieldset>
 
 <!-- Form Name -->
@@ -40,7 +44,7 @@ if ($db_connection -> connect_errno) {
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit">Incorrect?</label>
   <div class="col-md-4">
-    <button id="modify" name="modify" class="btn btn-primary">Modify</button>
+    <button id="modify" name="modify" class="btn btn-primary" onsubmit="return superFancy(event)">Modify</button>
   </div>
 </div>
 

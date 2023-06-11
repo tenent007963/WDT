@@ -1,7 +1,7 @@
 <link rel='stylesheet' href='./css/bootstraped.css' media='all'>
 <form class="search" id="search-form" action="/views/misc/modSymp.php" method="post">
     Search for Symptom ID : <input type="text" name="sid" >
-    <input type="submit" value="Search" name="btnSearch">
+    <input type="submit" value="Search" name="btnSearch" onsubmit="return superFancy(event)">
 </form>
 
 <?php
@@ -12,8 +12,11 @@ $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if (isset($_POST['symp_id'])) {
     $sql = 'UPDATE symptoms SET symp_name="'.$_POST["symp_name"].'",symp_desc="'.$_POST["symp_desc"].'" WHERE symp_id="'.$_POST['symp_name'].'";';
     $raw_data = $db_connection->query($sql);
-    if ($db_connection -> connect_errno) {
-        echo "<script>alert('DB Server error:".$db_connection -> connect_error."');</script>";
+    if ($db_connection -> connect_errno || $db_connection -> errno) {
+        echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+        echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
+        echo "<h4>Error query:". $db_connection -> errno ."</h4>";
+        echo "<h3>System error, please try again later.</h3>";
         exit();
     } else {
         echo "<script>alert('Data updated.');</script>";
@@ -69,7 +72,7 @@ if (isset($_POST['sid']) || isset($_POST['symp_id'])) {
         <div class="form-group">
         <label class="col-md-4 control-label" for="submit">Update?</label>
         <div class="col-md-4">
-            <button id="submit" name="submit" class="btn btn-primary">Cfm de mah</button>
+            <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Cfm de mah</button>
         </div>
         </div>
 

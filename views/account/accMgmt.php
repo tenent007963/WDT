@@ -3,7 +3,7 @@
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-$sql = 'SELECT user_name, user_email FROM users WHERE user_name="'.$_SESSION['user_name'].'";';
+$sql = 'SELECT user_id, user_name, user_email FROM users WHERE user_name="'.$_SESSION['user_name'].'";';
 
 if (isset($_POST['user_name'])) {
   $user_id = $_POST['user_id'];
@@ -16,8 +16,12 @@ if (isset($_POST['user_name'])) {
   ($uph != null) ? ",`user_password_hash`= '$uph'" : "".
   "WHERE user_id = '$user_id';";
   $result = $db_connection->query($query);
-  if ($db_connection -> connect_errno) {
-    echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+  if ($db_connection -> connect_errno || $db_connection -> errno) {
+    echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+    echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
+    echo "<h4>Error query:". $db_connection -> errno ."</h4>";
+    echo "<h3>System error, please try again later.</h3>";
+    exit();
   } else {
     $_SESSION['user_name'] = $user_name;
     $_SESSION['user_email'] = $user_email;
@@ -40,9 +44,9 @@ if ($db_connection -> connect_errno) {
 <legend>Account Details</legend>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="user_name">User ID</label>
+  <label class="col-md-4 control-label" for="user_id">User ID</label>
   <div class="col-md-4">
-  <input id="user_name" name="user_name" type="text" value="<?=$row['user_id']?>" class="form-control input-md" disabled>
+  <input id="user_id" name="user_id" type="text" value="<?=$row['user_id']?>" class="form-control input-md" disabled>
     
   </div>
 </div>
@@ -78,7 +82,7 @@ if ($db_connection -> connect_errno) {
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit">Confirm account details?</label>
   <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary">Correct</button>
+    <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Correct</button>
   </div>
 </div>
 

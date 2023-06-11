@@ -1,7 +1,7 @@
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
 <form class="search" id="search-form" action="/views/scheduling/uptAppt.php" method="post">
     Search for Appointment ID or username : <input type="text" name="sid" >
-    <input type="submit" value="Search" name="btnSearch">
+    <input type="submit" value="Search" name="btnSearch" onsubmit="return superFancy(event)">
 </form>
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
@@ -22,8 +22,12 @@ if (isset($_POST["submit"])) {
         `status`= '$status',
         WHERE sche_id = '$sche_id';";
     $result = $db_connection->query($query);
-    if ($db_connection -> connect_errno) {
-        echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+    if ($db_connection -> connect_errno || $db_connection -> errno) {
+        echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+        echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
+        echo "<h4>Error query:". $db_connection -> errno ."</h4>";
+        echo "<h3>System error, please try again later.</h3>";
+        exit();
     } else {
         echo "<script>alert('Updated appointment.');</script>";
     }
@@ -131,7 +135,7 @@ if (isset($_POST["sid"])) {
         <div class="form-group">
         <label class="col-md-4 control-label" for="submit">Confirm Details?</label>
         <div class="col-md-4">
-            <button id="submit" name="submit" class="btn btn-primary">Yes</button>
+            <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Yes</button>
         </div>
         </div>
 

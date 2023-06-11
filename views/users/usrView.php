@@ -12,8 +12,12 @@ if (isset($_POST['sid'])) {
   $sid = $_POST['sid'];
   $query = "SELECT user_id, user_name, user_email, user_role FROM users WHERE user_id = '$sid' OR user_name='$sid' ;";
   $raw_data= $db_connection->query($query);
-  if ($db_connection -> connect_errno) {
-    echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+  if ($db_connection -> connect_errno || $db_connection -> errno) {
+    echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+    echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
+    echo "<h4>Error query:". $db_connection -> errno ."</h4>";
+    echo "<h3>System error, please try again later.</h3>";
+    exit();
   }
   
   if (mysqli_num_rows($raw_data) == 1) {
@@ -57,7 +61,7 @@ if (isset($_POST['sid'])) {
     <div class="form-group">
     <label class="col-md-4 control-label" for="submit">Want to modify?</label>
     <div class="col-md-4">
-        <button id="submit" name="submit" class="btn btn-primary">Bring me there</button>
+        <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Bring me there</button>
     </div>
     </div>
 

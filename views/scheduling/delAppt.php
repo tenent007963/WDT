@@ -5,8 +5,12 @@ if (isset($_POST['sche_id'])){
     $sche_id = $_POST['sche_id'];
     $sql = "UPDATE `appointments` SET `is_deleted`=1 where sche_id = '$sche_id';";
     $result = $db_connection->query($query);
-    if ($db_connection -> connect_errno) {
-        echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+    if ($db_connection -> connect_errno || $db_connection -> errno) {
+        echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+        echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
+        echo "<h4>Error query:". $db_connection -> errno ."</h4>";
+        echo "<h3>System error, please try again later.</h3>";
+        exit();
     } else {
         echo "<script>alert('Appointment deleted!');</script>";
     }
@@ -17,5 +21,5 @@ if (isset($_POST['sche_id'])){
 <link rel='stylesheet' href='./css/bootstraped.css' media='all'>
 <form class="main" id="main-form" action="/views/scheduling/delAppt.php" method="post">
     Schedule ID for delete : <input type="text" name="sche_id" >
-    <input type="submit" value="Search" name="btnSearch">
+    <input type="submit" value="Search" name="btnSearch" onsubmit="(confirm('Sure to delete appointment?')) ? return superFancy(event) : return false" >
 </form>

@@ -17,6 +17,8 @@ if (isset($_POST["submit"])) {
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+        echo "<h3>An error occurred. Please try again later.</h3>";
+        exit();
     } else {
         echo "<script>alert('Appointment created!');</script>";
     }
@@ -86,7 +88,7 @@ if ($raw_data->num_rows> 0){
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit">Confirm Appointment?</label>
   <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary">Yes</button>
+    <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Yes</button>
   </div>
 </div>
 
