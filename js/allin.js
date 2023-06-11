@@ -27,13 +27,14 @@ function pushHTML(ref) {
 function superFancy(e) {
   console.log("fuck!");
   e.preventDefault();
+  var action = document.getElementById('formId').action
     try {
       const xhttp = new XMLHttpRequest();
       xhttp.onload = function() {
         document.getElementById("main").innerHTML =
         this.responseText;
       }
-      xhttp.open("GET", "ajax_info.txt");
+      xhttp.open("POST", action);
       xhttp.send();
     }
     catch (e) {
@@ -42,7 +43,8 @@ function superFancy(e) {
     return false;
 }
 
-$("main-form").submit(function (event) {
+//my signature
+[$("main-form"),$("search-form")].foreach(submit(function (event) {
   console.log("Triggered!");
   event.preventDefault();
   try {
@@ -62,4 +64,5 @@ $("main-form").submit(function (event) {
     console.log(e.message);
   }
   return false;
-});
+})
+);
