@@ -8,3 +8,99 @@ footer {
     background-color: azure;
     width: 99%;
 }
+
+/*merge with 2in1.css for lesser file request*/
+.navbar {
+    background-color: gray;
+    overflow: hidden;
+    display: block;
+  }
+  
+  .navbar .logo{
+    padding: 10px 16px;
+    float: left;
+  }
+
+  .navbar .logo img {
+    max-width: 73px;
+    height: 73px;
+  }
+  
+  .navbar a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .navbar a:hover {
+    background-color: beige;
+    color: black;
+  }
+  
+  .navbar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .navbar a .quick:before {
+    content:url(http://placehold.it/50x50);
+  }
+  
+  .navbar a .support {
+    max-width: 50px;
+    height: 50px;
+  }
+  
+  .navbar a .account {
+    max-width: 50px;
+    height: 50px;
+  }
+  
+  .navbar a .logout {
+    max-width: 50px;
+    height: 50px;
+  }
+  
+  .navbar .hello {
+    text-align: center;
+    color: aliceblue;
+  }
+  
+.menu {
+  background: rgba(5, 68, 104, 0.5);
+    position: fixed;
+    width: 225px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+    display: block;
+}
+
+  .menu a{
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid #10558d;
+    color: rgb(241, 237, 237);
+    font-size: 16px;
+    position: relative;
+  }
+
+  .menu a:hover,
+  .menu a.active{
+    color: #0c7db1;
+
+    background:white;
+    border-right: 2px solid rgb(5, 68, 104);
+  }
+
+  .menu a:hover:before,
+  .menu a.active:before{
+    display: block;
+  }
+
+  .menu span{
+    padding:8px 30px;
+  }

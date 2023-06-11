@@ -31,15 +31,18 @@
                 </div>
             </div>
             </div>
+            <script src='/js/index.js'></script>
         <?php } elseif ($file == "customer") { ?>
             <p>Customer Portal @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
             <span class="sid"><?=htmlspecialchars(session_id());?></span>
+            <script src='/js/allin.js'></script>
         <?php }
             if ($file == "tech") { ?>
             <p>Technician Dashboard @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
             <span class="sid"><?=htmlspecialchars(session_id());?></span>
+            <script src='/js/allin.js'></script>
     <?php } ?>
     </footer>
     </body>
-    <script src='/js/allin.js'></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 </html>

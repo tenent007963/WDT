@@ -15,18 +15,17 @@ $(function() {
 // core function for loading page
 function pushHTML(ref) {
   $("#main").load(ref, function() {
-    //execute here after load completed
+    //trigger listener after page loaded
+    n
     return false;
   });
 };
 
 
 // defined function for form submitting due to dynamic content
-object.onsubmit = function(){superFancy(e)};
-
 function superFancy(e) {
-  console.log("Triggered!");
-  e.preventDefault();
+  console.log("oops!");
+ /* e.preventDefault();
   try {
     $(this).ajax({ // create an AJAX call...
       data: $(this).serialize(), // get the form data
@@ -40,5 +39,31 @@ function superFancy(e) {
   } catch (e) {
     console.log(e.message);
   }
-  return false;
+  return false;*/
 }
+
+$(document).on("load", function() {
+  $(document).ready(function () {
+    $("main-form").submit(function (event) {
+      console.log("Triggered!");
+      event.preventDefault();
+      try {
+        $.ajax({
+          data: $(this).serialize(), // get the form data
+          type: $(this).attr('method'), // GET or POST
+          url: $(this).attr('action'), // the file to call
+          success: function(response) { // on success..
+            $('#main').html(response); // update the DIV
+            //pushHTML(response);     // or try diff method
+          }
+        }).done(function (data) {
+          console.log(data);
+        });
+      }
+      catch (e) {
+        console.log(e.message);
+      }
+      return false;
+    });
+  });
+});

@@ -12,7 +12,6 @@ if ($file == "tech") {
 if ($hello != null) {
 ?>
 
-<link rel='stylesheet' href='/css/2in1.css' media='all'>
 <header class="navbar" id="navbar">
       <div class="logo"><img src="/images/icon-small.png" alt="logo"></div>
       <a href="/login.php?logout"><img class="logout" src="https://icons-for-free.com/iconfiles/png/512/simple+and+minimal+line+icons+logout-1324450547511202535.png" alt="logout"></a>

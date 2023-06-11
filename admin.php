@@ -34,7 +34,6 @@ require_once "./head.php";
 ?>
 <!-- body section -->
 <body>
-    <link rel='stylesheet' href='./css/2in1.css' media='all'>
     <link rel='stylesheet' href='./css/<?=$file?>.css' media='all'>
     <header class="navbar">
     <div class="logo"><img src="/images/icon-small.png" alt="logo"></div>
