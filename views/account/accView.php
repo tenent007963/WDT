@@ -16,7 +16,7 @@ if ($db_connection -> connect_errno || $db_connection -> errno) {
     $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
 }
 ?>
-<form class="form-horizontal" action="/views/account/accMgmt.php" method="post">
+<form class="form-horizontal" action="/views/account/accMgmt.php" method="post" onsubmit="return superFancy(event)">
 <fieldset>
 
 <!-- Form Name -->
@@ -44,7 +44,7 @@ if ($db_connection -> connect_errno || $db_connection -> errno) {
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit">Incorrect?</label>
   <div class="col-md-4">
-    <button id="modify" name="modify" class="btn btn-primary" onsubmit="return superFancy(event)">Modify</button>
+    <button id="modify" name="modify" class="btn btn-primary" >Modify</button>
   </div>
 </div>
 

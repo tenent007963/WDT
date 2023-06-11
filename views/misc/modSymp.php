@@ -1,7 +1,7 @@
 <link rel='stylesheet' href='./css/bootstraped.css' media='all'>
-<form class="search" id="search-form" action="/views/misc/modSymp.php" method="post">
+<form class="search" id="search-form" action="/views/misc/modSymp.php" method="post" onsubmit="return superFancy(event)">
     Search for Symptom ID : <input type="text" name="sid" >
-    <input type="submit" value="Search" name="btnSearch" onsubmit="return superFancy(event)">
+    <input type="submit" value="Search" name="btnSearch" >
 </form>
 
 <?php
@@ -36,7 +36,7 @@ if (isset($_POST['sid']) || isset($_POST['symp_id'])) {
     if (mysqli_num_rows($raw_data) == 1) {
         $row = mysqli_fetch_row($raw_data);
         ?>
-        <form class="form-horizontal" method="post" action="/views/misc/modSymp.php" id="main-form">
+        <form class="form-horizontal" method="post" onsubmit="return superFancy(event)" action="/views/misc/modSymp.php" id="main-form">
         <fieldset>
 
         <!-- Form Name -->
@@ -72,7 +72,7 @@ if (isset($_POST['sid']) || isset($_POST['symp_id'])) {
         <div class="form-group">
         <label class="col-md-4 control-label" for="submit">Update?</label>
         <div class="col-md-4">
-            <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Cfm de mah</button>
+            <button id="submit" name="submit" class="btn btn-primary" >Cfm de mah</button>
         </div>
         </div>
 

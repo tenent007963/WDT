@@ -1,5 +1,5 @@
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
-<form class="search" id="search-form" action="/views/users/usrMgmt.php" method="post">
+<form class="search" id="search-form" action="/views/users/usrMgmt.php" method="post" onsubmit="return superFancy(event)">
     Search for User ID or username : <input type="text" name="sid" >
     <input type="submit" value="Search" name="btnSearch">
 </form>
@@ -40,7 +40,7 @@ if (isset($_POST['sid'])) {
     
     if (mysqli_num_rows($raw_data) == 1) {
       $data = $result->fetch_array(MYSQLI_ASSOC); ?>
-      <form class="form-horizontal" id="main-form" action="/views/users/usrMgmt.php" method="post">
+      <form class="form-horizontal" id="main-form" action="/views/users/usrMgmt.php" method="post" onsubmit="return superFancy(event)">
       <fieldset>
   
       <legend>View User Details</legend>
@@ -91,7 +91,7 @@ if (isset($_POST['sid'])) {
       <div class="form-group">
       <label class="col-md-4 control-label" for="submit">Everything correct?</label>
       <div class="col-md-4">
-          <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Yep</button>
+          <button id="submit" name="submit" class="btn btn-primary" >Yep</button>
       </div>
       </div>
   

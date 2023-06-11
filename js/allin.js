@@ -25,6 +25,7 @@ function pushHTML(ref) {
 object.onsubmit = function(){superFancy(e)};
 
 function superFancy(e) {
+  console.log("Triggered!");
   e.preventDefault();
   try {
     $(this).ajax({ // create an AJAX call...
@@ -41,17 +42,3 @@ function superFancy(e) {
   }
   return false;
 }
-
-/*
-$('#main-form').submit(function() { // catch the form's submit event
-  $.ajax({ // create an AJAX call...
-      data: $(this).serialize(), // get the form data
-      type: $(this).attr('method'), // GET or POST
-      url: $(this).attr('action'), // the file to call
-      success: function(response) { // on success..
-          $('#main').html(response); // update the DIV
-      }
-  });
-  return false; // cancel original event to prevent form submitting
-});
-*/ //honestly dont think it works

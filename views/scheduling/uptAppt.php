@@ -1,7 +1,7 @@
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
-<form class="search" id="search-form" action="/views/scheduling/uptAppt.php" method="post">
+<form class="search" id="search-form" action="/views/scheduling/uptAppt.php" method="post" onsubmit="return superFancy(event)">
     Search for Appointment ID or username : <input type="text" name="sid" >
-    <input type="submit" value="Search" name="btnSearch" onsubmit="return superFancy(event)">
+    <input type="submit" value="Search" name="btnSearch" >
 </form>
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
@@ -41,7 +41,7 @@ if (isset($_POST["sid"])) {
         $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
         $data = mysqli_fetch_array($raw_data1);
         ?>
-        <form class="form-horizontal" id="main-form" action="/views/scheduling/uptAppt.php" method="post">
+        <form class="form-horizontal" id="main-form" action="/views/scheduling/uptAppt.php" method="post" onsubmit="return superFancy(event)">
         <fieldset>
 
         <legend>Update Appointment</legend>
@@ -135,7 +135,7 @@ if (isset($_POST["sid"])) {
         <div class="form-group">
         <label class="col-md-4 control-label" for="submit">Confirm Details?</label>
         <div class="col-md-4">
-            <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Yes</button>
+            <button id="submit" name="submit" class="btn btn-primary" >Yes</button>
         </div>
         </div>
 

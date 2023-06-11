@@ -37,7 +37,7 @@ if ($db_connection -> connect_errno) {
     $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
 }
 ?>
-<form class="form-horizontal" id="main-form" action="/views/account/accMgmt.php" method="post">
+<form class="form-horizontal" id="main-form" action="/views/account/accMgmt.php" method="post" onsubmit="return superFancy(event)">
 <fieldset>
 
 <!-- Form Name -->
@@ -82,7 +82,7 @@ if ($db_connection -> connect_errno) {
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit">Confirm account details?</label>
   <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Correct</button>
+    <button id="submit" name="submit" class="btn btn-primary">Correct</button>
   </div>
 </div>
 

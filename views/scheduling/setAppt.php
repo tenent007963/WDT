@@ -31,7 +31,7 @@ if ($raw_data->num_rows> 0){
 
 ?>
 
-<form class="form-horizontal" id="main-form" action="/views/scheduling/setAppt.php" method="post">
+<form class="form-horizontal" id="main-form" action="/views/scheduling/setAppt.php" method="post" onsubmit="return superFancy(event)">
 <fieldset>
 
 <legend>Create new appointment</legend>
@@ -88,7 +88,7 @@ if ($raw_data->num_rows> 0){
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit">Confirm Appointment?</label>
   <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Yes</button>
+    <button id="submit" name="submit" class="btn btn-primary" >Yes</button>
   </div>
 </div>
 

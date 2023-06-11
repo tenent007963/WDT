@@ -36,7 +36,7 @@ if ($raw_data->num_rows > 0) {
         $data = mysqli_fetch_all($raw_data1, MYSQLI_ASSOC);
 ?>
 
-<form class="form-horizontal" id="main-form" action="/views/scheduling/modAppt.php" method="post">
+<form class="form-horizontal" id="main-form" action="/views/scheduling/modAppt.php" method="post" onsubmit="return superFancy(event)">
 <fieldset>
 
     <!-- Form Name -->
@@ -106,7 +106,7 @@ if ($raw_data->num_rows > 0) {
     <div class="form-group">
     <label class="col-md-4 control-label" for="submit">Update Details?</label>
     <div class="col-md-4">
-        <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">Yes</button>
+        <button id="submit" name="submit" class="btn btn-primary" >Yes</button>
     </div>
     </div>
 
