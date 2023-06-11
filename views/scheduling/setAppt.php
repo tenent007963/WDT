@@ -15,8 +15,8 @@ if (isset($_POST["submit"])) {
     $query ="INSERT INTO `appointments`(`by_user`, `date1`, `time1`, `status`, `cust_cmt`, `symp_id`)
         VALUES ('$by_user','$date1','$time1','$status','$cust_cmt','$symp_id')";
     $result = $db_connection->query($query);
-    if ($db_connection -> connect_errno) {
-        echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+    if ($db_connection -> connect_errno || $db_connection -> errno) {
+        echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
     } else {
         echo "<script>alert('Appointment created!');</script>";
     }
@@ -35,9 +35,9 @@ if ($raw_data->num_rows> 0){
 <legend>Create new appointment</legend>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="symp_is">Symptom</label>
+  <label class="col-md-4 control-label" for="symp_id">Symptom</label>
   <div class="col-md-4">
-    <select id="symp_is" name="symp_is" class="form-control">
+    <select id="symp_id" name="symp_id" class="form-control">
         <?php
         foreach ($options as $option) { ?>
             <option value="<?=$option['symp_id']?>"><?=$option['symp_name']?></option>
@@ -79,7 +79,7 @@ if ($raw_data->num_rows> 0){
 <div class="form-group">
   <label class="col-md-4 control-label" for="cust_cmt">Customer Comment</label>
   <div class="col-md-4">
-    <textarea class="form-control" id="cust_cmt" name="cust_cmt">Describe the issue or symptom</textarea>
+    <textarea class="form-control" placeholder="Describe the issue or symptom" id="cust_cmt" name="cust_cmt"></textarea>
   </div>
 </div>
 

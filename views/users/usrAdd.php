@@ -11,13 +11,14 @@ if (isset($_POST['user_name'])) {
   $query = "INSERT INTO `users` ('user_name','user_password_hash','user_email','user_role')
     VALUES ('$user_name','$uph','$user_email','$user_role);";
   $result = $db_connection->query($query);
-  if ($db_connection -> connect_errno) {
-    echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+  if ($db_connection -> connect_errno || $db_connection -> errno) {
+    echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
   } else {
     echo "<script>alert('Created new user '$user_name' with role '$user_role' !');</script>";
   }
 }
 
+$db_connection -> close();
 ?>
 <form class="form-horizontal" id="main-form" action="/views/users/usrAdd.php" method="post">
 <fieldset>
@@ -68,7 +69,7 @@ if (isset($_POST['user_name'])) {
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit">Create New Account?</label>
   <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary">ofc</button>
+    <button id="submit" name="submit" class="btn btn-primary" onsubmit="return superFancy(event)">ofc</button>
   </div>
 </div>
 

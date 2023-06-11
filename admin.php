@@ -68,11 +68,10 @@ require_once "./head.php";
         </span>
     </div>
 
-    <script src='/js/navbar.js'></script>
     <footer class='footer'>
         <p>Admin Panel @ InLine Scheduling System. 032023-MFD. All right reserved.</p>
         <span class="sid"><?=htmlspecialchars(session_id());?></span>
     </footer>
     </body>
-    <script src='./js/<?=$file?>.js'></script>
+    <script src='/js/allin.js'></script>
 </html>

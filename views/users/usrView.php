@@ -11,7 +11,7 @@ $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if (isset($_POST['sid'])) {
   $sid = $_POST['sid'];
   $query = "SELECT user_id, user_name, user_email, user_role FROM users WHERE user_id = '$sid' OR user_name='$sid' ;";
-  $result = $db_connection->query($query);
+  $raw_data= $db_connection->query($query);
   if ($db_connection -> connect_errno) {
     echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
   }

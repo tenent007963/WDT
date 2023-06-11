@@ -41,5 +41,5 @@
     <?php } ?>
     </footer>
     </body>
-    <script src='./js/<?=$file?>.js'></script>
+    <script src='/js/allin.js'></script>
 </html>

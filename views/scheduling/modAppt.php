@@ -19,8 +19,8 @@ if (isset($_POST["submit"])) {
         `symp_id=`= '$symp_id'
         WHERE sche_id = '$sche_id';";
     $result = $db_connection->query($query);
-    if ($db_connection -> connect_errno) {
-        echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+    if ($db_connection -> connect_errno || $db_connection -> errno) {
+        echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
     } else {
         echo "<script>alert('Appointment successfully modified!');</script>";
     }
@@ -28,10 +28,10 @@ if (isset($_POST["submit"])) {
 
 $raw_data = $db_connection->query($sql);
 $raw_data1 = $db_connection->query($sql1);
-if (($raw_data1->num_rows == 1) && ($raw_data->num_rows > 0) ){
-    $options = mysqli_fetch_all($raw_data, MYSQLI_ASSOC);
-    $data = mysqli_fetch_all($raw_data1, MYSQLI_ASSOC);
-
+if ($raw_data->num_rows > 0) {
+    if ($raw_data1->num_rows == 1) {
+        $options = mysqli_fetch_all($raw_data, MYSQLI_ASSOC);
+        $data = mysqli_fetch_all($raw_data1, MYSQLI_ASSOC);
 ?>
 
 <form class="form-horizontal" id="main-form" action="/views/scheduling/modAppt.php" method="post">
@@ -111,8 +111,11 @@ if (($raw_data1->num_rows == 1) && ($raw_data->num_rows > 0) ){
     </fieldset>
     </form>
 <?php
+    } else {
+        echo "<h2>Something went wrong, please contact support</h2>";
+    }
 } else {
-    echo "<h2>Something went wrong, please try again.</h2>";
+    echo "<h2>System under maintenance, please try again later.</h2>";
 }
 
  $db_connection -> close();
