@@ -16,7 +16,8 @@ $(function() {
 function pushHTML(ref) {
   $("#main").load(ref, function() {
     //trigger listener after page loaded
-    document.ready();
+    $.ready();
+    $.getScript("/js/allin.js");
     return false;
   });
 };
@@ -27,7 +28,7 @@ function superFancy(e) {
   console.log("oops!");
 }
 
-$(document).on('ready', function() {
+$(document).ready(function () {
     $("main-form").submit(function (event) {
       console.log("Triggered!");
       event.preventDefault();
@@ -49,4 +50,4 @@ $(document).on('ready', function() {
       }
       return false;
     });
-});
+  });
