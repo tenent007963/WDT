@@ -3,7 +3,7 @@ $user = $_SESSION['user_name'];
 $hello = null;
 
 if ($file == "customer") {
-      $hello == "Hello user, " . $user;
+      $hello = "Hello user, " . $user;
 }
 if ($file == "tech") {
       $hello = "Hello tech, " . $user;
