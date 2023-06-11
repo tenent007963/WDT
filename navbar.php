@@ -8,6 +8,8 @@ if ($file == "customer") {
 if ($file == "tech") {
       $hello = "Hello tech, " . $user;
 }
+
+if ($hello != null) {
 ?>
 
 <link rel='stylesheet' href='/css/2in1.css' media='all'>
@@ -19,3 +21,7 @@ if ($file == "tech") {
       <!-- <a onclick="quickAccess()"><div class="quick"></div></a> -->
       <div class="hello"><h3><?=$hello?></h3></div>
 </header>
+
+<?php
+}
+?>
