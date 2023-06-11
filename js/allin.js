@@ -16,7 +16,7 @@ $(function() {
 function pushHTML(ref) {
   $("#main").load(ref, function() {
     //trigger listener after page loaded
-    n
+    document.ready();
     return false;
   });
 };
@@ -25,25 +25,9 @@ function pushHTML(ref) {
 // defined function for form submitting due to dynamic content
 function superFancy(e) {
   console.log("oops!");
- /* e.preventDefault();
-  try {
-    $(this).ajax({ // create an AJAX call...
-      data: $(this).serialize(), // get the form data
-      type: $(this).attr('method'), // GET or POST
-      url: $(this).attr('action'), // the file to call
-      success: function(response) { // on success..
-          $('#main').html(response); // update the DIV
-          //pushHTML(response);     // or try diff method
-      }
-  });
-  } catch (e) {
-    console.log(e.message);
-  }
-  return false;*/
 }
 
-$(document).on("load", function() {
-  $(document).ready(function () {
+$(document).on('ready', function() {
     $("main-form").submit(function (event) {
       console.log("Triggered!");
       event.preventDefault();
@@ -65,5 +49,4 @@ $(document).on("load", function() {
       }
       return false;
     });
-  });
 });
