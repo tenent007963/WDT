@@ -25,29 +25,41 @@ function pushHTML(ref) {
 
 // defined function for form submitting due to dynamic content
 function superFancy(e) {
-  console.log("oops!");
+  console.log("fuck!");
+  e.preventDefault();
+    try {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        document.getElementById("main").innerHTML =
+        this.responseText;
+      }
+      xhttp.open("GET", "ajax_info.txt");
+      xhttp.send();
+    }
+    catch (e) {
+      console.log(e.message);
+    }
+    return false;
 }
 
-$(document).ready(function () {
-    $("main-form").submit(function (event) {
-      console.log("Triggered!");
-      event.preventDefault();
-      try {
-        $.ajax({
-          data: $(this).serialize(), // get the form data
-          type: $(this).attr('method'), // GET or POST
-          url: $(this).attr('action'), // the file to call
-          success: function(response) { // on success..
-            $('#main').html(response); // update the DIV
-            //pushHTML(response);     // or try diff method
-          }
-        }).done(function (data) {
-          console.log(data);
-        });
+$("main-form").submit(function (event) {
+  console.log("Triggered!");
+  event.preventDefault();
+  try {
+    $.ajax({
+      data: $(this).serialize(), // get the form data
+      type: $(this).attr('method'), // GET or POST
+      url: $(this).attr('action'), // the file to call
+      success: function(response) { // on success..
+        $('#main').html(response); // update the DIV
+        //pushHTML(response);     // or try diff method
       }
-      catch (e) {
-        console.log(e.message);
-      }
-      return false;
+    }).done(function (data) {
+      console.log(data);
     });
-  });
+  }
+  catch (e) {
+    console.log(e.message);
+  }
+  return false;
+});
