@@ -15,6 +15,7 @@ if (isset($_POST["date1"])) {
     $query ="INSERT INTO `appointments`(`by_user`, `date1`, `time1`, `status`, `cust_cmt`, `symp_id`)
         VALUES ('$by_user','$date1','$time1','$status','$cust_cmt','$symp_id')";
     $result = $db_connection->query($query);
+    echo $query; //delete this
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
         echo "<h3>An error occurred. Please try again later.</h3>";
