@@ -12,9 +12,9 @@ if (isset($_POST['user_name'])) {
     VALUES ('$user_name','$uph','$user_email','$user_role');";
   $result = $db_connection->query($query);
   if ($db_connection -> connect_errno || $db_connection -> errno) {
-    echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+    echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
   } else {
-    echo "<script>alert('Created new user '$user_name' with role '$user_role' !');</script>";
+    echo "<script type='text/javascript'>alert('Created new user '$user_name' with role '$user_role' !');</script>";
   }
 }
 

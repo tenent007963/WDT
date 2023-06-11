@@ -14,7 +14,7 @@ if ($login->isUserLoggedIn() == false) {
 if (isset($login)) {
     if ($login->errors) {
         foreach ($login->errors as $error) {
-            echo "<script>console.log('Error msg: " . $error . "' );</script>";
+            echo "<script type='text/javascript'>console.log('Error msg: " . $error . "' );</script>";
         }
     }
     if ($login->messages) {

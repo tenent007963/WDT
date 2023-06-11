@@ -17,7 +17,7 @@ if (isset($_POST['user_name'])) {
   "WHERE user_id = '$user_id';";
   $result = $db_connection->query($query);
   if ($db_connection -> connect_errno || $db_connection -> errno) {
-    echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+    echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
     echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
     echo "<h4>Error query:". $db_connection -> errno ."</h4>";
     echo "<h3>System error, please try again later.</h3>";
@@ -25,14 +25,14 @@ if (isset($_POST['user_name'])) {
   } else {
     $_SESSION['user_name'] = $user_name;
     $_SESSION['user_email'] = $user_email;
-    echo "<script>alert('Updated account details!');</script>";
+    echo "<script type='text/javascript'>alert('Updated account details!');</script>";
   }
 }
 
 
 $raw_data = $db_connection->query($sql);
 if ($db_connection -> connect_errno) {
-    echo "<script>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+    echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
 } else {
     $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
 }

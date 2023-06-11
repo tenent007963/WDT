@@ -16,7 +16,6 @@ $(function() {
 function pushHTML(ref) {
   $("#main").load(ref, function() {
     //trigger listener after page loaded
-    $.ready();
     $.getScript("/js/allin.js");
     return false;
   });
@@ -26,7 +25,9 @@ function pushHTML(ref) {
 // defined function for form submitting due to dynamic content
 function superFancy(e) {
   e.preventDefault();
-  let form = document.getElementById('main-form');
+  let mein = document.getElementById('main-form');
+  let sub = document.getElementById('search-form');
+  let form = ((document.forms['search-form'].elements['sid'].value) != null ) ? sub : mein;
     try {
       const xhttp = new XMLHttpRequest();
       xhttp.onload = function() {

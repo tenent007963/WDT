@@ -5,7 +5,7 @@ $sql = "SELECT * FROM users;";
 $raw_data = $db_connection->query($sql);
 
 if ($db_connection -> connect_errno) {
-    echo "<script>alert('DB Server error:".$db_connection -> connect_error."');</script>";
+    echo "<script type='text/javascript'>alert('DB Server error:".$db_connection -> connect_error."');</script>";
     exit();
 }
 

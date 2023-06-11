@@ -6,13 +6,13 @@ if (isset($_POST['sche_id'])){
     $sql = "UPDATE `appointments` SET `is_deleted`=1 where sche_id = '$sche_id';";
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
-        echo "<script>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+        echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
         echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
         echo "<h4>Error query:". $db_connection -> errno ."</h4>";
         echo "<h3>System error, please try again later.</h3>";
         exit();
     } else {
-        echo "<script>alert('Appointment deleted!');</script>";
+        echo "<script type='text/javascript'>alert('Appointment deleted!');</script>";
     }
     }
 
