@@ -25,9 +25,10 @@ function pushHTML(ref) {
 
 // defined function for form submitting due to dynamic content
 function superFancy(e) {
-  console.log("fuck!");
   e.preventDefault();
-  var action = document.getElementById('formId').action
+  console.log(JSON.stringify(e));
+  console.log("fuck!");
+  let action = document.getElementById('main-form').action;
     try {
       const xhttp = new XMLHttpRequest();
       xhttp.onload = function() {
@@ -43,26 +44,3 @@ function superFancy(e) {
     return false;
 }
 
-//my signature
-[$("main-form"),$("search-form")].foreach(submit(function (event) {
-  console.log("Triggered!");
-  event.preventDefault();
-  try {
-    $.ajax({
-      data: $(this).serialize(), // get the form data
-      type: $(this).attr('method'), // GET or POST
-      url: $(this).attr('action'), // the file to call
-      success: function(response) { // on success..
-        $('#main').html(response); // update the DIV
-        //pushHTML(response);     // or try diff method
-      }
-    }).done(function (data) {
-      console.log(data);
-    });
-  }
-  catch (e) {
-    console.log(e.message);
-  }
-  return false;
-})
-);
