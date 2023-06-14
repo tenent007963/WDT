@@ -3,12 +3,15 @@ $(function() {
     $("#menu > a").click(function(e) {
         e.preventDefault(); 
         pushHTML(this.href);
+        return false;
     });
 });
+
 $(function() {
   $("#navbar > a").click(function(e) {
       e.preventDefault(); 
       pushHTML(this.href);
+      return false;
   });
 });
 
@@ -33,12 +36,14 @@ function superFancy(e) {
       xhttp.onload = function() {
         document.getElementById("main").innerHTML =
         this.responseText;
+        return false;
       }
       xhttp.open("POST", form.action, true);
       xhttp.send(new FormData(form));
     }
     catch (e) {
       console.log(e.message);
+      return false;
     }
     return false;
 }
