@@ -27,7 +27,7 @@ function superFancy(e) {
   e.preventDefault();
   let mein = document.getElementById('main-form');
   let sub = document.getElementById('search-form');
-  let form = ((document.forms['search-form'].elements['sid'].value) != null ) ? sub : mein;
+  let form = (sub != null ) ? sub : mein;
     try {
       const xhttp = new XMLHttpRequest();
       xhttp.onload = function() {

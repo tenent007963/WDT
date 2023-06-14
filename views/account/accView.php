@@ -16,7 +16,7 @@ if ($db_connection -> connect_errno || $db_connection -> errno) {
     $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
 }
 ?>
-<form class="form-horizontal" action="/views/account/accMgmt.php" method="post" onsubmit="return superFancy(event)">
+<form class="form-horizontal" id="main-form" action="/views/account/accMgmt.php" method="post" onsubmit="return superFancy(event)">
 <fieldset>
 
 <!-- Form Name -->
