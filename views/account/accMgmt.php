@@ -16,7 +16,6 @@ if (isset($_POST['user_id'])) {
   `user_email`= '$user_email'".
   $gotuph .
   " WHERE user_id = '$user_id';";
-  echo $query;
   $result = $db_connection->query($query);
   if ($db_connection -> connect_errno || $db_connection -> errno) {
     echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
