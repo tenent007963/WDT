@@ -49,7 +49,7 @@ if (isset($_POST['sid'])) {
       <div class="form-group">
       <label class="col-md-4 control-label" for="user_name">User ID</label>
       <div class="col-md-4">
-      <input id="user_name" name="user_name" type="text" value="<?=$data['user_id']?>" class="form-control input-md" disabled>
+      <input id="user_name" name="user_name" type="text" value="<?=$data['user_id']?>" class="form-control input-md" readonly>
           
       </div>
       </div>

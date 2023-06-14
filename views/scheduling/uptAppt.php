@@ -50,7 +50,7 @@ if (isset($_POST["sid"])) {
         <div class="form-group">
         <label class="col-md-4 control-label" for="sche_id">Schedule ID</label>
         <div class="col-md-4">
-        <input id="sche_id" name="sche_id" type="text" value="<?=$row['sche_id']?>" class="form-control input-md" disabled>
+        <input id="sche_id" name="sche_id" type="text" value="<?=$row['sche_id']?>" class="form-control input-md" readonly>
             
         </div>
         </div>

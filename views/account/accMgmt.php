@@ -46,12 +46,12 @@ if ($db_connection -> connect_errno || $db_connection -> errno) {
 <fieldset>
 
 <!-- Form Name -->
-<legend>Account Details</legend>
+<legend>Manage Account Details</legend>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="user_id">User ID</label>
   <div class="col-md-4">
-  <input id="user_id" name="user_id" type="text" value="<?=$row['user_id']?>" class="form-control input-md" disabled>
+  <input id="user_id" name="user_id" type="text" value="<?=$row['user_id']?>" class="form-control input-md" readonly>
     
   </div>
 </div>

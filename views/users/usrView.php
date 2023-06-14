@@ -31,7 +31,7 @@ if (isset($_POST['sid'])) {
     <div class="form-group">
     <label class="col-md-4 control-label" for="user_name">User ID</label>
     <div class="col-md-4">
-    <input id="user_name" name="user_name" type="text" value="<?=$data['user_id']?>" class="form-control input-md" disabled>
+    <input id="user_name" name="user_name" type="text" value="<?=$data['user_id']?>" class="form-control input-md" readonly>
         
     </div>
     </div>
@@ -39,7 +39,7 @@ if (isset($_POST['sid'])) {
     <div class="form-group">
     <label class="col-md-4 control-label" for="user_name">Username</label>
     <div class="col-md-4">
-    <input id="user_name" name="user_name" type="text" value="<?=$data['user_name']?>" class="form-control input-md" disabled>
+    <input id="user_name" name="user_name" type="text" value="<?=$data['user_name']?>" class="form-control input-md" readonly>
         
     </div>
     </div>
@@ -47,7 +47,7 @@ if (isset($_POST['sid'])) {
     <div class="form-group">
     <label class="col-md-4 control-label" for="user_email">Email Address</label>
     <div class="col-md-5">
-    <input id="user_email" name="user_email" type="text" value="<?=$data['user_email']?>" class="form-control input-md" disabled>
+    <input id="user_email" name="user_email" type="text" value="<?=$data['user_email']?>" class="form-control input-md" readonly>
         
     </div>
     </div>
@@ -55,7 +55,7 @@ if (isset($_POST['sid'])) {
     <div class="form-group">
     <label class="col-md-4 control-label" for="user_role">User Role</label>
     <div class="col-md-4">
-    <input id="user_role" name="user_role" type="text" value="<?=$data['user_role']?>" class="form-control input-md" disabled>
+    <input id="user_role" name="user_role" type="text" value="<?=$data['user_role']?>" class="form-control input-md" readonly>
     </div>
     </div>
 
