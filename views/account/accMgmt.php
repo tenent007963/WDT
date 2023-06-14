@@ -9,11 +9,12 @@ if (isset($_POST['user_id'])) {
   $user_id = $_POST['user_id'];
   $user_name = $_POST['user_name'];
   $user_email = $_POST['user_email'];
-  $uph = (isset($_POST['user_name'])) ? password_hash($_POST['user_password'], PASSWORD_DEFAULT) : null;
+  $uph = (isset($_POST['user_password'])) ? password_hash($_POST['user_password'], PASSWORD_DEFAULT) : null;
+  $gotuph = ($uph != null) ? ",`user_password_hash`= '$uph'" : "";
   $query = "UPDATE `users` SET
   `user_name`= '$user_name',
   `user_email`= '$user_email'".
-  ($uph != null) ? ",`user_password_hash`= '$uph'" : "".
+  $gotuph .
   "WHERE user_id = '$user_id';";
   echo $query;
   $result = $db_connection->query($query);
