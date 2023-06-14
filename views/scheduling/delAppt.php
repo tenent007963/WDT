@@ -4,6 +4,7 @@ $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if (isset($_POST['sche_id'])){
     $sche_id = $_POST['sche_id'];
     $sql = "UPDATE `appointments` SET `is_deleted`=1 where sche_id = '$sche_id';";
+    echo $sql;
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";

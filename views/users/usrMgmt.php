@@ -18,6 +18,7 @@ if (isset($_POST['user_id'])) { //for update
   `user_password_hash` = '$uph',
   `user_role`= '$user_role'
   WHERE user_id = '$user_id';";
+  echo $query; //delete this
   $result = $db_connection->query($query);
   if ($db_connection -> connect_errno || $db_connection -> errno) {
     echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";

@@ -5,6 +5,8 @@ require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $sql = "SELECT * FROM symptoms" ;
 $sql1 = 'SELECT * FROM appointments WHERE user_name="'.$_SESSION['user_name'].'" AND is_deleted != 1 ORDER BY date1 DESC LIMIT 1;';
+echo $sql; //delete this
+echo $sql1; //delete this
 
 if (isset($_POST["sche_id"])) {
     $sche_id = $_POST['sche_id'];
@@ -18,6 +20,7 @@ if (isset($_POST["sche_id"])) {
         `cust_cmt`= '$cust_cmt',
         `symp_id=`= '$symp_id'
         WHERE sche_id = '$sche_id';";
+    echo $query; //delete this
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";

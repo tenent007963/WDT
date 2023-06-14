@@ -11,6 +11,7 @@ $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 if (isset($_POST['symp_id'])) {
     $sql = 'UPDATE symptoms SET symp_name="'.$_POST["symp_name"].'",symp_desc="'.$_POST["symp_desc"].'" WHERE symp_id="'.$_POST['symp_name'].'";';
+    echo $sql;
     $raw_data = $db_connection->query($sql);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";

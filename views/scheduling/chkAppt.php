@@ -16,6 +16,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, symp_id
     FROM appointments WHERE by_user = '" . $_SESSION['user_name'] . "' AND is_deleted != 1 ORDER BY date1 DESC LIMIT 20;";
+echo $sql;
 $raw_data = $db_connection->query($sql);
 
 if ((!$db_connection->connect_errno) && (!$db_connection->errno)) {

@@ -21,6 +21,7 @@ if (isset($_POST["sche_id"])) {
         `tech_cmt`= '$tech_cmt',
         `status`= '$status',
         WHERE sche_id = '$sche_id';";
+    echo $query; //delete this
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
