@@ -15,7 +15,7 @@ if (isset($_POST['user_id'])) {
   `user_name`= '$user_name',
   `user_email`= '$user_email'".
   $gotuph .
-  "WHERE user_id = '$user_id';";
+  " WHERE user_id = '$user_id';";
   echo $query;
   $result = $db_connection->query($query);
   if ($db_connection -> connect_errno || $db_connection -> errno) {
@@ -61,7 +61,7 @@ if ($db_connection -> connect_errno || $db_connection -> errno) {
 <div class="form-group">
   <label class="col-md-4 control-label" for="user_name">Username</label>
   <div class="col-md-4">
-  <input id="user_name" name="user_name" type="text" value="<?=$row['user_name']?>" class="form-control input-md" required="">
+  <input id="user_name" name="user_name" type="text" value="<?=$row['user_name']?>" class="form-control input-md" readonly>
     
   </div>
 </div>
