@@ -52,9 +52,9 @@ if ($raw_data->num_rows > 0) {
 
     <!-- Select Basic -->
     <div class="form-group">
-    <label class="col-md-4 control-label" for="symp_is">Symptom</label>
+    <label class="col-md-4 control-label" for="symp_id">Symptom</label>
     <div class="col-md-4">
-        <select id="symp_is" name="symp_is" class="form-control">
+        <select id="symp_id" name="symp_id" class="form-control">
             <?php
             while ($option = mysqli_fetch_array($raw_data)) {
             ?>

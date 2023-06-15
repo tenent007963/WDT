@@ -56,7 +56,7 @@ if (isset($_POST["sid"])) {
         </div>
 
         <div class="form-group">
-        <label class="col-md-4 control-label" for="symp_is">Symptom</label>
+        <label class="col-md-4 control-label" for="symp_id">Symptom</label>
         <div class="col-md-4">
         <input id="symp_id" name="symp_id" type="text" value="<?=$row['symp_id']?>" class="form-control input-md" disabled>
             
