@@ -25,16 +25,16 @@ require_once "./head.php";
 
 <div class="body-container" id="main">
     <div class="img-carousel" id="carousel">
-        <button class="slide-arrow" id="slide-arrow-prev">
-          &#8249;
-        </button>
-        <button class="slide-arrow" id="slide-arrow-next">
-          &#8250;
-        </button>
+    <button class="slide-arrow" id="slide-arrow-prev">
+      &#8249;
+    </button>
+    <button class="slide-arrow" id="slide-arrow-next">
+      &#8250;
+    </button>
       <ul class="slides-container" id="slides-container">
-        <li class="slide"><img src="./images/carousel/cust-layout.png" alt="Screenshot feature customer interface showcase of InLine Scheduling System"></li>
-        <li class="slide"><img src="./images/carousel/tech-layout.png" alt="Screenshot feature technician interface showcase of InLine Scheduling System"></li>
-        <li class="slide"><img src="./images/carousel/cover1.png" alt="Placeholder Picture, feature showcase of InLine Scheduling System"></li>
+        <li class="slide" id="1"><img src="./images/carousel/cust-layout.png" alt="Screenshot feature customer interface showcase of InLine Scheduling System"></li>
+        <li class="slide" id="2"><img src="./images/carousel/tech-layout.png" alt="Screenshot feature technician interface showcase of InLine Scheduling System"></li>
+        <li class="slide" id="99"><img src="./images/carousel/cover1.png" alt="Placeholder Picture, feature showcase of InLine Scheduling System"></li>
       </ul>
       </div>
 
