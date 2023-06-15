@@ -52,9 +52,9 @@ if (isset($_POST['sid'])) {
       <legend>View User Details</legend>
   
       <div class="form-group">
-      <label class="col-md-4 control-label" for="user_name">User ID</label>
+      <label class="col-md-4 control-label" for="user_id">User ID</label>
       <div class="col-md-4">
-      <input id="user_name" name="user_name" type="text" value="<?=$data['user_id']?>" class="form-control input-md" readonly>
+      <input id="user_id" name="user_id" type="text" value="<?=$data['user_id']?>" class="form-control input-md" readonly>
           
       </div>
       </div>
