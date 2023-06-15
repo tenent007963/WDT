@@ -13,7 +13,7 @@ if (isset($_POST['user_id'])) { //for update
   $user_name = $_POST['user_name'];
   $user_email = $_POST['user_email'];
   $user_id = $_POST['user_id'];
-  $uph = (isset($_POST['user_password'])) ? password_hash($_POST['user_password'], PASSWORD_DEFAULT) : null;
+  $uph = (($_POST['user_password'] != "") || ($_POST['user_password'] != null)) ? password_hash($_POST['user_password'], PASSWORD_DEFAULT) : null;
   $gotuph = ($uph != null) ? ",`user_password_hash`= '$uph'" : "";
   $query = "UPDATE `users` SET
   `user_name`= '$user_name',

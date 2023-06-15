@@ -1,21 +1,9 @@
 // defined function for form submitting due to dynamic content
 //two tests
 function superFancy(e) {
-  setInterval(10000);
-  try {
-  const scripts = document.getElementsByTagName("script");
-  var script = scripts[0];
-  var newScript = document.createElement("script");
-  if (script.textContent) {
-    newScript.textContent = script.textContent;
-  } else if (script.innerText) {
-    newScript.innerText = script.innerText;
-  }
-  document.body.appendChild(newScript);
-  } 
-  catch (e) {
-    console.log(e.message);
-  }
+  var scripts = document.querySelectorAll("script");
+  var text = scripts[scripts.length - 1].textContent;
+  (0, eval)(scripts[scripts.length - 1].textContent);
 }
 
 document.addEventListener('submit', function (event) {
@@ -36,3 +24,7 @@ document.addEventListener('submit', function (event) {
   }
   return false;
 });
+
+var scripts = document.querySelectorAll("script");
+  var text = scripts[scripts.length - 1].textContent;
+  (0, eval)(scripts[scripts.length - 1].textContent);
