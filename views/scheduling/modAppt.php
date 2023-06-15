@@ -16,7 +16,7 @@ if (isset($_POST["sche_id"])) {
         `date1`= '$date1',
         `time1`= '$time1',
         `cust_cmt`= '$cust_cmt',
-        `symp_id=`= '$symp_id'
+        `symp_id`= '$symp_id'
         WHERE sche_id = '$sche_id';";
     echo $query;
     $result = $db_connection->query($query);
