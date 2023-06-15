@@ -10,10 +10,10 @@ if (isset($_POST["date1"])) {
     $date1 = $_POST['date1'];
     $time1 = $_POST['time1'];
     $cust_cmt = isset($_POST['cust_cmt']) ? $_POST['cust_cmt'] : "";
-    $by_user = $_SESSION['user_name'];
+    $user_id = $_SESSION['user_id'];
     $status = "created";
-    $query ="INSERT INTO `appointments`(`by_user`, `date1`, `time1`, `status`, `cust_cmt`, `symp_id`)
-        VALUES ('$by_user','$date1','$time1','$status','$cust_cmt','$symp_id')";
+    $query ="INSERT INTO `appointments`(`user_id`, `date1`, `time1`, `status`, `cust_cmt`, `symp_id`)
+        VALUES ('$user_id','$date1','$time1','$status','$cust_cmt','$symp_id')";
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";

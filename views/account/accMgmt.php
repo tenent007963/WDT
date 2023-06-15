@@ -25,7 +25,6 @@ if (isset($_POST['user_id'])) {
     exit();
   } else {
     $_SESSION['user_name'] = $user_name;
-    $_SESSION['user_email'] = $user_email;
     echo "<script type='text/javascript'>alert('Updated account details!');</script>";
   }
 }

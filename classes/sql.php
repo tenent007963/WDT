@@ -1,4 +1,5 @@
 <?php
+// Not in use due to no time for code rebase
 
 class Role
 {
@@ -37,9 +38,9 @@ class Role
 
     /*-- to determine which interface to redirect to --*/
     public function getRole() {
-        if(isset($_SESSION['user_name']) && isset($_SESSION['user_email'])) {
+        if(isset($_SESSION['user_name']) && isset($_SESSION['user_id'])) {
             $this->sql = "SELECT user_role FROM users
-            WHERE user_name = '" . $user_name . "' OR user_email = '" . $user_email . "';";
+            WHERE user_name = '" . $user_name . "' OR user_id = '" . $user_id . "';";
             $raw_data = $this->db_connection->query($this->sql);
         } else {
             $this->errors[] = "Restricted area. Please login before access.";
@@ -63,11 +64,11 @@ class Role
     public function getData() {
         if ( ($_GET["getData"] != "") &&  is_numeric($_GET["getData"]) ) {
             $this->sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments
-            FROM appointment WHERE by_user = '" . $user_name . "'LIMIT " . $_GET["getData"] .";";
+            FROM appointment WHERE user_id = '" . $user_name . "'LIMIT " . $_GET["getData"] .";";
             $raw_data = $this->db_connection->query($sql);
         } else {
             $this->sql = "SELECT sche_id, appoint_to, date1, date2, time1, time2, status, comments
-            FROM appointment WHERE by_user = '" . $user_name . "'LIMIT 20;";
+            FROM appointment WHERE user_id = '" . $user_name . "'LIMIT 20;";
         }
         if ( $this->sql != null ) {
             $raw_data = $this->db_connection->query($this->sql);

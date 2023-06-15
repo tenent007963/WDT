@@ -26,7 +26,7 @@ if ($raw_data->num_rows > 0) {
     while ($result_data = $raw_data->fetch_object()) {
         echo '<tr>';
         echo '<td>' .$result_data->sche_id. '</td>';
-        echo '<td>' .$result_data->by_user. '</td>';
+        echo '<td>' .$result_data->user_id. '</td>';
         echo '<td>' .$result_data->appoint_to. '</td>';
         echo '<td>' .$result_data->date1. '</td>';
         echo '<td>' .$result_data->time1. '</td>';

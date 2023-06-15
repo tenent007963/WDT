@@ -7,9 +7,9 @@ require_once("classes/Login.php");
 
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-if (isset($_SESSION['user_name']) && isset($_SESSION['user_email'])) {
+if (isset($_SESSION['user_name']) && isset($_SESSION['user_id'])) {
     $sql = "SELECT user_role FROM users
-    WHERE user_name = '" . $_SESSION['user_name'] . "' OR user_email = '" . $_SESSION['user_email'] . "';";
+    WHERE user_name = '" . $_SESSION['user_name'] . "' OR user_id = '" . $_SESSION['user_id'] . "';";
     $raw_data = $db_connection->query($sql);
 } else {
     echo "Restricted area. Please login before access.";
