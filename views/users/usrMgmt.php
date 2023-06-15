@@ -1,7 +1,7 @@
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
 <form class="search" id="search-form" action="/views/users/usrMgmt.php" method="post" onsubmit="return superFancy(event)">
     Search for User ID or username : <input type="text" name="sid" >
-    <input type="submit" value="search" name="btnSearch">
+    <input type="submit" value="search" name="btnSearch" form="search-form">
 </form>
 <br /><br /> 
 <?php
@@ -97,7 +97,7 @@ if (isset($_POST['sid'])) {
       <div class="form-group">
       <label class="col-md-4 control-label" for="submit">Everything correct?</label>
       <div class="col-md-4">
-          <button id="submit" name="submit" class="btn btn-primary" >Yep</button>
+          <button id="submit" name="submit" class="btn btn-primary" form="main-form">Yep</button>
       </div>
       </div>
   
