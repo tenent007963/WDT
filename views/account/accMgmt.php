@@ -18,21 +18,21 @@ if (isset($_POST['user_id'])) {
   " WHERE user_id = '$user_id';";
   $result = $db_connection->query($query);
   if ($db_connection -> connect_errno || $db_connection -> errno) {
-    echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+    echo "<h3 class='alert'>DB Server error:".$db_connection -> connect_error. $db_connection -> errno."</h3>";
     echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
     echo "<h4>Error query:". $db_connection -> errno ."</h4>";
     echo "<h3>System error, please try again later.</h3>";
     exit();
   } else {
     $_SESSION['user_name'] = $user_name;
-    echo "<script type='text/javascript'>alert('Updated account details!');</script>";
+    echo "<h3 class='alert'>Updated account details!</h3>";
   }
 }
 
 
 $raw_data = $db_connection->query($sql);
 if ($db_connection -> connect_errno || $db_connection -> errno) {
-    echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+    echo "<h3 class='alert'>DB Server error:".$db_connection -> connect_error. $db_connection -> errno."</h3>";
     echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
     echo "<h4>Error query:". $db_connection -> errno ."</h4>";
     echo "<h3>System error, please try again later.</h3>";

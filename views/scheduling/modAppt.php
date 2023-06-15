@@ -20,11 +20,11 @@ if (isset($_POST["sche_id"])) {
         WHERE sche_id = '$sche_id';";
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
-        echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+        echo "<h3 class='alert'>DB Server error:".$db_connection -> connect_error. $db_connection -> errno."</h3>";
         echo "<h3>An error occurred. Please try again later.</h3>";
         exit();
     } else {
-        echo "<script type='text/javascript'>alert('Appointment successfully modified!');</script>";
+        echo "<h3 class='alert'>Appointment successfully modified!</h3>";
     }
 }
 

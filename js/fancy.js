@@ -1,9 +1,9 @@
-// defined function for form submitting due to dynamic content
-//two tests
+// a placeholder function for legacy purpose and script existance checking
 function superFancy(e) {
   console.log("test");
 }
 
+// form submitting with auto capture parent node and formdata
 document.addEventListener('submit', function (event) {
   event.preventDefault();
   let form = document.getElementById(event.target.id);

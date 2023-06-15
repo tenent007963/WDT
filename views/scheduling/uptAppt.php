@@ -24,13 +24,13 @@ if (isset($_POST["sche_id"])) {
     echo $query; //delete this
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
-        echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+        echo "<h3 class='alert'>DB Server error:".$db_connection -> connect_error. $db_connection -> errno."</h3>";
         echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
         echo "<h4>Error query:". $db_connection -> errno ."</h4>";
         echo "<h3>System error, please try again later.</h3>";
         exit();
     } else {
-        echo "<script type='text/javascript'>alert('Updated appointment.');</script>";
+        echo "<h3 class='alert'>Updated appointment.</h3>";
     }
 }
 if (isset($_POST["sid"])) {
@@ -129,12 +129,26 @@ if (isset($_POST["sid"])) {
             <div class="form-group">
             <label class="col-md-4 control-label" for="tech_cmt">Technician Comment</label>
             <div class="col-md-4">
-                <textarea class="form-control" id="tech_cmt" name="tech_cmt">Technician's comment</textarea>
+                <textarea class="form-control" id="tech_cmt" name="tech_cmt" placeholder="Technician's comment"></textarea>
             </div>
             </div>
 
             <div class="form-group">
-            <label class="col-md-4 control-label" for="submit">Confirm Details?</label>
+            <label class="col-md-4 control-label" for="status">Status Update</label>
+            <div class="col-md-4">
+                <select id="status" name="status" class="form-control input-md">
+                    <option value="pending">Pending</option>
+                    <option value="ongoing">In Progress</option>
+                    <option value="solved">Solved</option>
+                    <option value="repeat">Repeat Case</option>
+                    <option value="closed">Case Closed</option>
+                    <option value="transferred">Transfer to other technician</option>
+                </select>
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="submit">Confirm Update?</label>
             <div class="col-md-4">
                 <button id="submit" name="submit" class="btn btn-primary" >Yes</button>
             </div>

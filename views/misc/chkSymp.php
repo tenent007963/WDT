@@ -5,7 +5,7 @@ $sql = "SELECT * FROM symptoms" ;
 $raw_data = $db_connection->query($sql);
 
 if ($db_connection -> connect_errno) {
-    echo "<script type='text/javascript'>alert('DB Server error:".$db_connection -> connect_error."');</script>";
+    echo "<h3 class='alert'>DB Server error:".$db_connection -> connect_error."</h3>";
     exit();
 }
 

@@ -13,13 +13,13 @@ if (isset($_POST['symp_id'])) {
     $sql = 'UPDATE symptoms SET symp_name="'.$_POST["symp_name"].'", symp_desc="'.$_POST["symp_desc"].'" WHERE symp_id="'.$_POST['symp_id'].'";';
     $raw_data = $db_connection->query($sql);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
-        echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+        echo "<h3 class='alert'>DB Server error:".$db_connection -> connect_error. $db_connection -> errno."</h3>";
         echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
         echo "<h4>Error query:". $db_connection -> errno ."</h4>";
         echo "<h3>System error, please try again later.</h3>";
         exit();
     } else {
-        echo "<script type='text/javascript'>alert('Data updated.');</script>";
+        echo "<h3 class='alert'>Data updated.</h3>";
     }
 }
 
@@ -29,7 +29,7 @@ if (isset($_POST['sid']) || isset($_POST['symp_id'])) {
     $raw_data = $db_connection->query($sql);
 
     if ($db_connection -> connect_errno) {
-        echo "<script type='text/javascript'>alert('DB Server error:".$db_connection -> connect_error."');</script>";
+        echo "<h3 class='alert'>DB Server error:".$db_connection -> connect_error."</h3>";
         exit();
     }
 

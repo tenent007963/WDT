@@ -16,11 +16,11 @@ if (isset($_POST["date1"])) {
         VALUES ('$user_id','$date1','$time1','$status','$cust_cmt','$symp_id')";
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
-        echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+        echo "<h3 class='alert'>DB Server error:".$db_connection -> connect_error. $db_connection -> errno."</h3>";
         echo "<h3>An error occurred. Please try again later.</h3>";
         exit();
     } else {
-        echo "<script type='text/javascript'>alert('Appointment created!');</script>";
+        echo "<h3 class='alert'>Appointment created!</h3>";
     }
 }
 
