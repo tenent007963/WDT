@@ -24,7 +24,7 @@ function superFancy(e) {
   */
 function superFancy(e) { console.log("testing in progress"); };
 
-document.addEventListener('click', function (event) {
+document.addEventListener('submit', function (event) {
 
   if (event.target.click) {
     event.preventDefault();
