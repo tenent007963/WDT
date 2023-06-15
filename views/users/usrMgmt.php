@@ -34,7 +34,6 @@ if (isset($_POST['user_id'])) { //for update
 if (isset($_POST['sid'])) {
     $sid = $_POST['sid'];
     $query = "SELECT user_id, user_name, user_email, user_role FROM users WHERE user_id = '$sid' OR user_name='$sid' ;";
-    echo $query;
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
       echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
@@ -44,7 +43,7 @@ if (isset($_POST['sid'])) {
       exit();
     }
     
-    if (mysqli_num_rows($raw_data) == 1) {
+    if (mysqli_num_rows($result) == 1) {
       $data = $result->fetch_array(MYSQLI_ASSOC); ?>
       <form class="form-horizontal" id="main-form" action="/views/users/usrMgmt.php" method="post" onsubmit="return superFancy(event)">
       <fieldset>
