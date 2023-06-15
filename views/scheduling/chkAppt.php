@@ -20,17 +20,18 @@ $raw_data = $db_connection->query($sql);
 
 if ((!$db_connection->connect_errno) && (!$db_connection->errno)) {
     if ($raw_data->num_rows > 0) {
-        $result_data = $raw_data->fetch_object();
-        echo '<tr>';
-        echo '<td>' .$result_data->sche_id. '</td>';
-        echo '<td>' .$result_data->appoint_to. '</td>';
-        echo '<td>' .$result_data->date1. '</td>';
-        echo '<td>' .$result_data->time1. '</td>';
-        echo '<td>' .$result_data->date2. '</td>';
-        echo '<td>' .$result_data->time2. '</td>';
-        echo '<td>' .$result_data->status. '</td>';
-        echo '<td>' .$result_data->symp_id. '</td>';
-        echo '</tr>';
+        while ($result_data = $raw_data->fetch_object()) {;
+            echo '<tr>';
+            echo '<td>' .$result_data->sche_id. '</td>';
+            echo '<td>' .$result_data->appoint_to. '</td>';
+            echo '<td>' .$result_data->date1. '</td>';
+            echo '<td>' .$result_data->time1. '</td>';
+            echo '<td>' .$result_data->date2. '</td>';
+            echo '<td>' .$result_data->time2. '</td>';
+            echo '<td>' .$result_data->status. '</td>';
+            echo '<td>' .$result_data->symp_id. '</td>';
+            echo '</tr>';
+        }
     } else {
         echo "No appointment found for current user.";
     }
