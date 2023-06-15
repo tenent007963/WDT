@@ -1,7 +1,7 @@
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
 <form class="search" id="search-form" action="/views/users/usrView.php" method="post" onsubmit="return superFancy(event)">
     Search for User ID or username : <input type="text" name="sid" >
-    <input type="submit" value="Search" name="btnSearch">
+    <input type="submit" value="search" name="btnSearch">
 </form>
 
 <?php 

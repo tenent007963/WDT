@@ -3,7 +3,7 @@ function superFancy(e) {
     e.preventDefault();
     let mein = document.getElementById('main-form');
     let sub = document.getElementById('search-form');
-    let form = (sub != null ) ? sub : mein;
+    let form = (val == "search" ) ? sub : mein;
       try {
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
@@ -20,3 +20,4 @@ function superFancy(e) {
       }
       return false;
   };
+

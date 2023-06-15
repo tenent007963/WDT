@@ -1,8 +1,9 @@
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
 <form class="search" id="search-form" action="/views/users/usrMgmt.php" method="post" onsubmit="return superFancy(event)">
     Search for User ID or username : <input type="text" name="sid" >
-    <input type="submit" value="Search" name="btnSearch">
+    <input type="submit" value="search" name="btnSearch">
 </form>
+<br /><br /> 
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -77,7 +78,7 @@ if (isset($_POST['sid'])) {
       <div class="form-group">
       <label class="col-md-4 control-label" for="user_password">Password</label>
       <div class="col-md-5">
-      <input id="user_password" name="user_password" type="text" placeholder="assassin" class="form-control input-md" required>
+      <input id="user_password" name="user_password" type="text" placeholder="[password here to update]" class="form-control input-md">
             
       </div>
       </div>

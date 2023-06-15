@@ -17,8 +17,20 @@ $(function() {
 // core function for loading page
 function pushHTML(ref) {
   $("#main").load(ref, function() {
-    //trigger listener after page loaded
+    //load the 
     $.getScript("/js/fancy.js");
     return false;
   });
 };
+
+let val = null;
+$(document).ready(function() {
+  $("form").submit(function() { 
+      val = $("input[type=submit][clicked=true]").val();
+      // DO WORK
+  });
+  $("form input[type=submit]").click(function() {
+      $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+      $(this).attr("clicked", "true");
+  });
+});

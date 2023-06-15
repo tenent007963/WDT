@@ -1,7 +1,7 @@
 <link rel='stylesheet' href='/css/bootstraped.css' media='all'>
 <form class="search" id="search-form" action="/views/scheduling/uptAppt.php" method="post" onsubmit="return superFancy(event)">
     Search for Appointment ID or username : <input type="text" name="sid" >
-    <input type="submit" value="Search" name="btnSearch" >
+    <input type="submit" value="search" name="btnSearch" >
 </form>
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
