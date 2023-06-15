@@ -25,8 +25,18 @@ require_once "./head.php";
 
 <div class="body-container" id="main">
     <div class="img-carousel" id="carousel">
-        <img src="./images/carousel/cover1.png" alt="Cover Picture, feature showcase of InLine Scheduling System">
-    </div>
+        <button class="slide-arrow" id="slide-arrow-prev">
+          &#8249;
+        </button>
+        <button class="slide-arrow" id="slide-arrow-next">
+          &#8250;
+        </button>
+      <ul class="slides-container" id="slides-container">
+        <li class="slide"><img src="./images/carousel/cust-layout.png" alt="Screenshot feature customer interface showcase of InLine Scheduling System"></li>
+        <li class="slide"><img src="./images/carousel/tech-layout.png" alt="Screenshot feature technician interface showcase of InLine Scheduling System"></li>
+        <li class="slide"><img src="./images/carousel/cover1.png" alt="Placeholder Picture, feature showcase of InLine Scheduling System"></li>
+      </ul>
+      </div>
 
     <div class="text-intro" id="intro">
         <h5>The InLine Scheduling System is an innovative online home repair appointment system ,specifically designed to cater to the needs of the elderly population, who may have limited experience with technology. Our primary goal is to provide a user-friendly interface that enables easy connection between elders and skilled technicians, facilitating convenient repairs for their home equipment. The name "InLine" signifies our commitment to being available 24/7, as we are ready to assist the elderly with any issues they may encounter, ranging from minor concerns to urgent emergencies.
