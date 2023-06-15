@@ -12,14 +12,15 @@ if (isset($_POST['user_id'])) { //for update
   $user_role = $_POST['user_role'];
   $user_name = $_POST['user_name'];
   $user_email = $_POST['user_email'];
-  $uph = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
+  $user_id = $_POST['user_id'];
+  $uph = (isset($_POST['user_password'])) ? password_hash($_POST['user_password'], PASSWORD_DEFAULT) : null;
+  $gotuph = ($uph != null) ? ",`user_password_hash`= '$uph'" : "";
   $query = "UPDATE `users` SET
   `user_name`= '$user_name',
   `user_email`= '$user_email',
-  `user_password_hash` = '$uph',
-  `user_role`= '$user_role'
-  WHERE user_id = '$user_id';";
-  echo $query; //delete this
+  `user_role`= '$user_role'".
+  $gotuph .
+  " WHERE user_id = '$user_id';";
   $result = $db_connection->query($query);
   if ($db_connection -> connect_errno || $db_connection -> errno) {
     echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
