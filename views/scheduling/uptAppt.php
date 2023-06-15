@@ -38,112 +38,117 @@ if (isset($_POST["sid"])) {
     $sql1 = 'SELECT user_name FROM users WHERE role=2;';
     $raw_data = $db_connection->query($sql);
     $raw_data1 = $db_connection->query($sql1);
-    if (($raw_data->num_rows == 1) && ($raw_data->num_rows > 1)) {
-        $row = mysqli_fetch_array($raw_data, MYSQLI_ASSOC);
-        $data = mysqli_fetch_array($raw_data1);
-        ?>
-        <form class="form-horizontal" id="main-form" action="/views/scheduling/uptAppt.php" method="post" onsubmit="return superFancy(event)">
-        <fieldset>
+    if ($raw_data->num_rows == 1) {
+        if ($raw_data1->num_rows > 1) {
+            $row = mysqli_fetch_array($raw_data);
+            ?>
+            <form class="form-horizontal" id="main-form" action="/views/scheduling/uptAppt.php" method="post" onsubmit="return superFancy(event)">
+            <fieldset>
 
-        <legend>Update Appointment</legend>
+            <legend>Update Appointment</legend>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="sche_id">Schedule ID</label>
-        <div class="col-md-4">
-        <input id="sche_id" name="sche_id" type="text" value="<?=$row['sche_id']?>" class="form-control input-md" readonly>
-            
-        </div>
-        </div>
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="sche_id">Schedule ID</label>
+            <div class="col-md-4">
+            <input id="sche_id" name="sche_id" type="text" value="<?=$row['sche_id']?>" class="form-control input-md" readonly>
+                
+            </div>
+            </div>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="symp_id">Symptom</label>
-        <div class="col-md-4">
-        <input id="symp_id" name="symp_id" type="text" value="<?=$row['symp_id']?>" class="form-control input-md" disabled>
-            
-        </div>
-        </div>
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="symp_id">Symptom</label>
+            <div class="col-md-4">
+            <input id="symp_id" name="symp_id" type="text" value="<?=$row['symp_id']?>" class="form-control input-md" disabled>
+                
+            </div>
+            </div>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="date1">Appointment Date</label>
-        <div class="col-md-4">
-        <input id="date1" name="date1" type="date" class="form-control input-md" disabled value='<?=$row['date1']?>'>
-        </div>
-        </div>
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="date1">Appointment Date</label>
+            <div class="col-md-4">
+            <input id="date1" name="date1" type="date" class="form-control input-md" disabled value='<?=$row['date1']?>'>
+            </div>
+            </div>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="time1">Preferred Time Slot</label>
-        <div class="col-md-4">
-        <input id="time1" name="time1" type="time" value="<?=$row['time1']?>" class="form-control input-md" disabled>
-        </div>
-        </div>
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="time1">Preferred Time Slot</label>
+            <div class="col-md-4">
+            <input id="time1" name="time1" type="time" value="<?=$row['time1']?>" class="form-control input-md" disabled>
+            </div>
+            </div>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="cust_cmt">Customer Comment</label>
-        <div class="col-md-4">
-            <textarea class="form-control" id="cust_cmt" name="cust_cmt" disabled><?=$row['cust_cmt']?></textarea>
-        </div>
-        </div>
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="cust_cmt">Customer Comment</label>
+            <div class="col-md-4">
+                <textarea class="form-control" id="cust_cmt" name="cust_cmt" disabled><?=$row['cust_cmt']?></textarea>
+            </div>
+            </div>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="appoint_to">Technician</label>
-        <div class="col-md-4">
-        <select id="appoint_to" name="appoint_to" class="form-control input-md">
-            <?php
-            foreach ($data as $usr) { ?>
-                <option value="<?=$usr['user_name']?>"><?=$usr['user_name']?></option>
-            <?php } ?>
-        </select>
-        </div>
-        </div>
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="appoint_to">Technician</label>
+            <div class="col-md-4">
+            <select id="appoint_to" name="appoint_to" class="form-control input-md">
+                <?php
+                while ($usr = mysqli_fetch_array($raw_data1)) { ?>
+                    <option value="<?=$usr['user_id']?>"><?=$usr['user_name']?></option>
+                <?php } ?>
+            </select>
+            </div>
+            </div>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="date2">Completion Date</label>
-        <div class="col-md-4">
-        <input id="date2" name="date2" type="date" class="form-control input-md">
-            
-        </div>
-        </div>
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="date2">Completion Date</label>
+            <div class="col-md-4">
+            <input id="date2" name="date2" type="date" class="form-control input-md">
+                
+            </div>
+            </div>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="time2">Completed Time</label>
-        <div class="col-md-4">
-        <input id="time2" name="time2" type="time" min="08:00" max="20:00" list="slots" class="form-control input-md">
-        <datalist id="slots">
-            <option value="08:00">
-            <option value="09:00">
-            <option value="10:00">
-            <option value="11:00">
-            <option value="12:00">
-            <option value="13:00">
-            <option value="14:00">
-            <option value="15:00">
-            <option value="16:00">
-            <option value="17:00">
-            <option value="18:00">
-            <option value="19:00">
-            <option value="20:00">
-        </datalist>
-        </div>
-        </div>
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="time2">Completed Time</label>
+            <div class="col-md-4">
+            <input id="time2" name="time2" type="time" min="08:00" max="20:00" list="slots" class="form-control input-md">
+            <datalist id="slots">
+                <option value="08:00">
+                <option value="09:00">
+                <option value="10:00">
+                <option value="11:00">
+                <option value="12:00">
+                <option value="13:00">
+                <option value="14:00">
+                <option value="15:00">
+                <option value="16:00">
+                <option value="17:00">
+                <option value="18:00">
+                <option value="19:00">
+                <option value="20:00">
+            </datalist>
+            </div>
+            </div>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="tech_cmt">Technician Comment</label>
-        <div class="col-md-4">
-            <textarea class="form-control" id="tech_cmt" name="tech_cmt">Technician's comment</textarea>
-        </div>
-        </div>
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="tech_cmt">Technician Comment</label>
+            <div class="col-md-4">
+                <textarea class="form-control" id="tech_cmt" name="tech_cmt">Technician's comment</textarea>
+            </div>
+            </div>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="submit">Confirm Details?</label>
-        <div class="col-md-4">
-            <button id="submit" name="submit" class="btn btn-primary" >Yes</button>
-        </div>
-        </div>
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="submit">Confirm Details?</label>
+            <div class="col-md-4">
+                <button id="submit" name="submit" class="btn btn-primary" >Yes</button>
+            </div>
+            </div>
 
-        </fieldset>
-        </form>
+            </fieldset>
+            </form>
 
-    <?php }
+        <?php } else {
+            echo "<h4> No available technician. Please contact admin. </h4>";
+        }
+    } else {
+        echo "<h4> Appointment not found, please check your search query.</h4>";
     }
- $db_connection -> close();
+}
+$db_connection -> close();
 ?>
