@@ -17,8 +17,14 @@ $(function() {
 // core function for loading page
 function pushHTML(ref) {
   $("#main").load(ref, function() {
-    //load the 
-    $.getScript("/js/fancy.js");
+    //load script if not exist
+    try {
+      if (!superFancy()) {
+        return true;
+      };
+    } catch (e) {
+      $.getScript("/js/fancy.js");
+    }
     return false;
   });
 };

@@ -29,7 +29,7 @@ if (isset($_POST['user_id'])) { //for update
     echo "<h3>System error, please try again later.</h3>";
     exit();
   } else {
-    echo "<script type='text/javascript'>alert('Updated details for user '$user_name' !');</script>";
+    echo "<script type='text/javascript'>alert('Updated details for user ". $user_name ." !');</script>";
   }
 }
 
@@ -106,5 +106,8 @@ if (isset($_POST['sid'])) {
       </form>
   
     <?php }
+    else {
+      echo "<h3>No user found. Please check your spellings and try again.</h5>";
+    }
 }
 ?>

@@ -1,9 +1,7 @@
 // defined function for form submitting due to dynamic content
 //two tests
 function superFancy(e) {
-  var scripts = document.querySelectorAll("script");
-  var text = scripts[scripts.length - 1].textContent;
-  (0, eval)(scripts[scripts.length - 1].textContent);
+  console.log("test");
 }
 
 document.addEventListener('submit', function (event) {
@@ -24,7 +22,3 @@ document.addEventListener('submit', function (event) {
   }
   return false;
 });
-
-var scripts = document.querySelectorAll("script");
-  var text = scripts[scripts.length - 1].textContent;
-  (0, eval)(scripts[scripts.length - 1].textContent);

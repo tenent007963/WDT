@@ -10,8 +10,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 if (isset($_POST['symp_id'])) {
-    $sql = 'UPDATE symptoms SET symp_name="'.$_POST["symp_name"].'",symp_desc="'.$_POST["symp_desc"].'" WHERE symp_id="'.$_POST['symp_name'].'";';
-    echo $sql;
+    $sql = 'UPDATE symptoms SET symp_name="'.$_POST["symp_name"].'", symp_desc="'.$_POST["symp_desc"].'" WHERE symp_id="'.$_POST['symp_id'].'";';
     $raw_data = $db_connection->query($sql);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
@@ -41,7 +40,7 @@ if (isset($_POST['sid']) || isset($_POST['symp_id'])) {
         <fieldset>
 
         <!-- Form Name -->
-        <legend>Symptoms</legend>
+        <legend>Modify Symptoms</legend>
 
         <!-- Text input-->
         <div class="form-group">
@@ -65,7 +64,7 @@ if (isset($_POST['sid']) || isset($_POST['symp_id'])) {
         <div class="form-group">
         <label class="col-md-4 control-label" for="symp_desc">Symptom Description</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="symp_desc" name="symp_desc"><?=$row[2]?>"</textarea>
+            <textarea class="form-control" id="symp_desc" name="symp_desc"><?=$row[2]?></textarea>
         </div>
         </div>
 

@@ -3,8 +3,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if (isset($_POST['sche_id'])){
     $sche_id = $_POST['sche_id'];
-    $sql = "UPDATE `appointments` SET `is_deleted`=1 where sche_id = '$sche_id';";
-    echo $sql;
+    $sql = "UPDATE `appointments` SET `is_deleted` = 1 where sche_id = '$sche_id';";
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
@@ -20,7 +19,25 @@ if (isset($_POST['sche_id'])){
 
 ?>
 <link rel='stylesheet' href='./css/bootstraped.css' media='all'>
-<form class="main" id="main-form" action="/views/scheduling/delAppt.php" method="post" onsubmit="return superFancy(event)">
-    Schedule ID for delete : <input type="text" name="sche_id" >
-    <input type="submit" value="search" name="btnSearch" onsubmit="(confirm('Sure to delete appointment?')) ? return superFancy(event) : return false" >
+
+<form class="form-horizontal" id="main-form" action="/views/scheduling/delAppt.php" method="post" onsubmit="return confirm('Double confirm to delete appointment?');">
+    <fieldset>
+    <legend>Delete Appointment (Warning: proceed with caution}</legend>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="sche_id">Schedule ID for delete : </label>
+        <div class="col-md-4">
+            <input id="sche_id" name="sche_id" type="text" class="form-control input-md" required="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="submit">Confirm to delete?</label>
+        <div class="col-md-4">
+            <button id="submit" name="submit" class="btn btn-primary" >Very confirm</button>
+            <input type="submit" value="delete" name="btnNuclear" >
+        </div>
+        </div>
+
+    </fieldset>
 </form>
