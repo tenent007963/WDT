@@ -18,7 +18,6 @@ if (isset($_POST["sche_id"])) {
         `cust_cmt`= '$cust_cmt',
         `symp_id=`= '$symp_id'
         WHERE sche_id = '$sche_id';";
-    echo $query; //delete this
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
@@ -33,9 +32,7 @@ $raw_data = $db_connection->query($sql);
 $raw_data1 = $db_connection->query($sql1);
 if ($raw_data->num_rows > 0) {
     if ($raw_data1->num_rows == 1) {
-        $options = mysqli_fetch_all($raw_data, MYSQLI_ASSOC);
-        $data = mysqli_fetch_all($raw_data1, MYSQLI_ASSOC);
-        print_r($data); //delete this
+        $data = $raw_data1->fetch_object();
 ?>
 
 <form class="form-horizontal" id="main-form" action="/views/scheduling/modAppt.php" method="post" onsubmit="return superFancy(event)">
@@ -48,7 +45,7 @@ if ($raw_data->num_rows > 0) {
     <div class="form-group">
         <label class="col-md-4 control-label" for="sche_id">Appointment ID</label>
         <div class="col-md-4">
-            <input id="sche_id" name="sche_id" type="text" value="<?=$data['sche_id']?>" class="form-control input-md" readonly>
+            <input id="sche_id" name="sche_id" type="text" value="<?=$data->sche_id?>" class="form-control input-md" readonly>
                 
         </div>
     </div>
@@ -59,9 +56,10 @@ if ($raw_data->num_rows > 0) {
     <div class="col-md-4">
         <select id="symp_is" name="symp_is" class="form-control">
             <?php
-            foreach ($options as $option) { ?>
-                <option value="<?=$option['symp_id']?>" <?=($option['symp_id']==$data['symp_id']) ? "selected" : ''?> ><?=$option['symp_name']?></option>
-            <?php } ?>
+            while ($option = mysqli_fetch_array($raw_data)) {
+            ?>
+                <option value="<?=$option['symp_id']?>" <?=($option['symp_id']==$data->symp_id) ? "selected" : ''?> ><?=$option['symp_name']?></option>
+            <?php }; ?>
         </select>
     </div>
     </div>
@@ -70,7 +68,7 @@ if ($raw_data->num_rows > 0) {
     <div class="form-group">
     <label class="col-md-4 control-label" for="date1">Appointment Date</label>
     <div class="col-md-4">
-    <input id="date1" name="date1" type="date" class="form-control input-md" required value='<?=$data['date1']?>'>
+    <input id="date1" name="date1" type="date" class="form-control input-md" required value='<?=$data->date1?>'>
         
     </div>
     </div>
@@ -101,7 +99,7 @@ if ($raw_data->num_rows > 0) {
     <div class="form-group">
     <label class="col-md-4 control-label" for="cust_cmt">Customer Comment</label>
     <div class="col-md-4">
-        <textarea class="form-control" id="cust_cmt" name="cust_cmt"><?=$data['cust_cmt']?></textarea>
+        <textarea class="form-control" id="cust_cmt" name="cust_cmt"><?=$data->cust_cmt?></textarea>
     </div>
     </div>
 
