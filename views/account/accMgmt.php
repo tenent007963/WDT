@@ -59,7 +59,7 @@ if ($db_connection -> connect_errno || $db_connection -> errno) {
 <div class="form-group">
   <label class="col-md-4 control-label" for="user_name">Username</label>
   <div class="col-md-4">
-  <input id="user_name" name="user_name" type="text" value="<?=$row['user_name']?>" class="form-control input-md" readonly>
+  <input id="user_name" name="user_name" type="text" value="<?=$row['user_name']?>" class="form-control input-md" required="">
     
   </div>
 </div>
