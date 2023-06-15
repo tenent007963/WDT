@@ -14,7 +14,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-$sql = "SELECT * FROM appointments WHERE is_deleted != 1 ORDER BY date1 DESC;";
+$sql = "SELECT * FROM appointments WHERE is_deleted <> 1 OR is_deleted IS NULL ORDER BY date1 DESC;";
 $raw_data = $db_connection->query($sql);
 
 if ($db_connection -> connect_errno) {

@@ -34,7 +34,7 @@ if (isset($_POST["sche_id"])) {
     }
 }
 if (isset($_POST["sid"])) {
-    $sql = 'SELECT * FROM appointments WHERE user_name="'.$_POST["sid"].'" OR sche_id="'.$_POST["sid"].'" AND is_deleted != 1 ORDER BY date1 DESC LIMIT 1;';
+    $sql = 'SELECT * FROM appointments WHERE user_name="'.$_POST["sid"].'" OR sche_id="'.$_POST["sid"].'" AND is_deleted <> 1 OR is_deleted IS NULL ORDER BY date1 DESC LIMIT 1;';
     $sql1 = 'SELECT user_name FROM users WHERE role=2;';
     $raw_data = $db_connection->query($sql);
     $raw_data1 = $db_connection->query($sql1);

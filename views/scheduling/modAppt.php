@@ -18,6 +18,7 @@ if (isset($_POST["sche_id"])) {
         `cust_cmt`= '$cust_cmt',
         `symp_id=`= '$symp_id'
         WHERE sche_id = '$sche_id';";
+    echo $query;
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
