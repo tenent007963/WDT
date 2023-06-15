@@ -6,7 +6,6 @@ $(function() {
         return false;
     });
 });
-
 $(function() {
   $("#navbar > a").click(function(e) {
       e.preventDefault(); 

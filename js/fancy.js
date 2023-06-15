@@ -19,5 +19,4 @@ function superFancy(e) {
         return false;
       }
       return false;
-  }
-  
+  };

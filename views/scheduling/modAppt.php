@@ -5,7 +5,6 @@ require_once($_SERVER['DOCUMENT_ROOT']."/config/db.php");
 $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $sql = "SELECT * FROM symptoms;" ;
 $sql1 = 'SELECT * FROM appointments WHERE by_user="'.$_SESSION['user_name'].'" AND is_deleted IS NULL OR is_deleted <> "1" ORDER BY date1 DESC LIMIT 1;';
-echo $sql1; //delete this
 
 if (isset($_POST["sche_id"])) {
     $sche_id = $_POST['sche_id'];
@@ -36,6 +35,7 @@ if ($raw_data->num_rows > 0) {
     if ($raw_data1->num_rows == 1) {
         $options = mysqli_fetch_all($raw_data, MYSQLI_ASSOC);
         $data = mysqli_fetch_all($raw_data1, MYSQLI_ASSOC);
+        echo $data;
 ?>
 
 <form class="form-horizontal" id="main-form" action="/views/scheduling/modAppt.php" method="post" onsubmit="return superFancy(event)">
