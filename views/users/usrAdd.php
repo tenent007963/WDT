@@ -8,9 +8,8 @@ if (isset($_POST['user_name'])) {
   $user_name = $_POST['user_name'];
   $user_email = $_POST['user_email'];
   $uph = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
-  $query = "INSERT INTO `users` ('user_name','user_password_hash','user_email','user_role')
+  $query = "INSERT INTO users (user_name,user_password_hash,user_email,user_role)
     VALUES ('$user_name','$uph','$user_email','$user_role');";
-  echo $query; //delete this
   $result = $db_connection->query($query);
   if ($db_connection -> connect_errno || $db_connection -> errno) {
     echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";

@@ -38,7 +38,6 @@ if (isset($_POST["sid"])) {
     $sql1 = 'SELECT user_id, user_name FROM users WHERE role=2;';
     $raw_data = $db_connection->query($sql);
     $raw_data1 = $db_connection->query($sql1);
-    echo $sql;
     if ($raw_data->num_rows == 1) {
         if ($raw_data1->num_rows > 1) {
             $row = mysqli_fetch_array($raw_data);
