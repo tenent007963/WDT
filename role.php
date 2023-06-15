@@ -13,6 +13,7 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user_id'])) {
     $raw_data = $db_connection->query($sql);
 } else {
     echo "Restricted area. Please login before access.";
+    exit();
 }
 
 if (!$db_connection->connect_errno) {
@@ -43,4 +44,5 @@ if (!$db_connection->connect_errno) {
     }
 } else {
     echo "Database connection problem.";
+    exit();
 }
