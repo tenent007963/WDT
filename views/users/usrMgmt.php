@@ -34,9 +34,14 @@ if (isset($_POST['user_id'])) { //for update
 if (isset($_POST['sid'])) {
     $sid = $_POST['sid'];
     $query = "SELECT user_id, user_name, user_email, user_role FROM users WHERE user_id = '$sid' OR user_name='$sid' ;";
+    echo $query;
     $result = $db_connection->query($query);
-    if ($db_connection -> connect_errno) {
-      echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error."');</script>";
+    if ($db_connection -> connect_errno || $db_connection -> errno) {
+      echo "<script type='text/javascript'>console.log('DB Server error:".$db_connection -> connect_error. $db_connection -> errno."');</script>";
+      echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
+      echo "<h4>Error query:". $db_connection -> errno ."</h4>";
+      echo "<h3>System error, please try again later.</h3>";
+      exit();
     }
     
     if (mysqli_num_rows($raw_data) == 1) {
