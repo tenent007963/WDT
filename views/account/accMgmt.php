@@ -55,7 +55,7 @@ if ($db_connection -> connect_errno || $db_connection -> errno) {
   </div>
 </div>
 
-<!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="user_name">Username</label>
   <div class="col-md-4">
@@ -64,7 +64,7 @@ if ($db_connection -> connect_errno || $db_connection -> errno) {
   </div>
 </div>
 
-<!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="user_email">Email Address</label>
   <div class="col-md-5">
@@ -73,7 +73,7 @@ if ($db_connection -> connect_errno || $db_connection -> errno) {
   </div>
 </div>
 
-<!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="user_password">Password</label>
   <div class="col-md-5">
@@ -82,7 +82,7 @@ if ($db_connection -> connect_errno || $db_connection -> errno) {
   </div>
 </div>
 
-<!-- Button -->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit">Confirm account details?</label>
   <div class="col-md-4">

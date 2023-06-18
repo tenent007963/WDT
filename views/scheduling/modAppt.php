@@ -64,7 +64,7 @@ if ($raw_data->num_rows > 0) {
     </div>
     </div>
 
-    <!-- Text input-->
+    
     <div class="form-group">
     <label class="col-md-4 control-label" for="date1">Appointment Date</label>
     <div class="col-md-4">
@@ -73,7 +73,7 @@ if ($raw_data->num_rows > 0) {
     </div>
     </div>
 
-    <!-- Text input-->
+    
     <div class="form-group">
     <label class="col-md-4 control-label" for="time1">Preferred Time Slot</label>
     <div class="col-md-4">

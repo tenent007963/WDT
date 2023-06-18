@@ -25,7 +25,7 @@ if (isset($_POST["symp_id"])){
 <!-- Form Name -->
 <legend>Symptoms</legend>
 
-<!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="symp_id">Symptom ID</label>
   <div class="col-md-4">
@@ -34,7 +34,7 @@ if (isset($_POST["symp_id"])){
   </div>
 </div>
 
-<!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="symp_name">Symptom Name</label>
   <div class="col-md-4">
@@ -51,7 +51,7 @@ if (isset($_POST["symp_id"])){
   </div>
 </div>
 
-<!-- Button -->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit">Save?</label>
   <div class="col-md-4">

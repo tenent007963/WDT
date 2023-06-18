@@ -26,7 +26,7 @@ $db_connection -> close();
 <!-- Form Name -->
 <legend>Add New User</legend>
 
-<!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="user_name">Username</label>
   <div class="col-md-4">
@@ -35,7 +35,7 @@ $db_connection -> close();
   </div>
 </div>
 
-<!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="user_email">Email Address</label>
   <div class="col-md-5">
@@ -44,7 +44,7 @@ $db_connection -> close();
   </div>
 </div>
 
-<!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="user_password">Password</label>
   <div class="col-md-5">
@@ -65,7 +65,7 @@ $db_connection -> close();
   </div>
 </div>
 
-<!-- Button -->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit">Create New Account?</label>
   <div class="col-md-4">
