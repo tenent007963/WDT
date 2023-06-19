@@ -13,7 +13,6 @@ if (isset($registration)) {
     }
 }
 ?>
-<!-- css styling -->
 <link rel='stylesheet' href='./css/form.css' media='all'>
 
 <!-- register form -->
