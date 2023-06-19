@@ -108,8 +108,6 @@ class Login
         // delete the session of the user
         $_SESSION = array();
         session_destroy();
-        // Redirect to login page
-        header("Location: login.php");
         // return a little feeedback message
         $this->messages[] = "You have been logged out.";
 
