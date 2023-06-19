@@ -36,7 +36,7 @@ require_once "./head.php";
     <!-- default greeting page, to be replaced after user interact with navbar/menu -->
     <span class="greeting" id="greeting-main">
         <h2>Welcome customer, <?=$_SESSION['user_name']?></h2>
-        <h3>Schedule an appointment by pressing <a onclick="pushHTML(/views/scheduling/setAppt.php);">here</a> or select "<a onclick="pushHTML(/views/scheduling/setAppt.php);">Book Appointment</a>" from the left panel.</h3>
+        <h3>Schedule an appointment by pressing <a onclick='pushHTML("/views/scheduling/setAppt.php");'>here</a> or select "<a onclick='pushHTML("/views/scheduling/setAppt.php");'>Book Appointment</a>" from the left panel.</h3>
     </span>
 </div>
 
