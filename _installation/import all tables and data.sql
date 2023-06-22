@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 18, 2023 at 08:42 AM
+-- Generation Time: Jun 19, 2023 at 03:15 PM
 -- Server version: 10.5.20-MariaDB
 -- PHP Version: 7.3.33
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `appointments`
 --
 
-CREATE TABLE `appointments` (
+CREATE TABLE IF NOT EXISTS `appointments` (
   `sche_id` int(20) NOT NULL COMMENT 'unique schedule id',
   `user_id` int(11) NOT NULL COMMENT 'scheduled by user',
   `appoint_to` varchar(50) DEFAULT NULL COMMENT 'appointed to technician',
@@ -42,13 +42,20 @@ CREATE TABLE `appointments` (
   `is_deleted` binary(2) DEFAULT NULL COMMENT 'mark as deleted'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`sche_id`, `user_id`, `appoint_to`, `date1`, `date2`, `time1`, `time2`, `status`, `tech_cmt`, `cust_cmt`, `symp_id`, `is_deleted`) VALUES
+(8, 100006, NULL, '2023-06-19', NULL, '18:00:00', NULL, 'created', NULL, 'toilet cant flush need help', 'smwg01', NULL);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `symptoms`
 --
 
-CREATE TABLE `symptoms` (
+CREATE TABLE IF NOT EXISTS `symptoms` (
   `symp_id` char(15) NOT NULL,
   `symp_name` varchar(255) NOT NULL,
   `symp_desc` varchar(255) NOT NULL
@@ -60,7 +67,11 @@ CREATE TABLE `symptoms` (
 
 INSERT INTO `symptoms` (`symp_id`, `symp_name`, `symp_desc`) VALUES
 ('smwg01', 'Sumthing Wong', 'Sumthing had went Wong, what could it be????'),
-('symp01', 'Sample Testing', 'Sample description testing 123456');
+('symp01', 'Sample Testing', 'Sample description testing 123456'),
+('symp02', 'Light cannot turn on', '-'),
+('tv01', 'TV Not turning on', 'TV cannot be turned on'),
+('tv02', 'TV image glitching/distortion', 'TV image glitching/distortion (Not working)'),
+('tv03', 'TV small image glitches', 'TV image small issue (Working)');
 
 -- --------------------------------------------------------
 
@@ -68,7 +79,7 @@ INSERT INTO `symptoms` (`symp_id`, `symp_name`, `symp_desc`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(11) NOT NULL COMMENT 'auto incrementing user_id of each user, unique index',
   `user_name` varchar(64) NOT NULL COMMENT 'user''s name, unique',
   `user_password_hash` varchar(255) NOT NULL COMMENT 'user''s password in salted and hashed format',
@@ -88,7 +99,9 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `user_email`,
 (100006, 'tai', '$2y$10$wL0yPMwdekhWG7mg3PB29.dwfGo4IMvlgG6Sx.Fj7HkUuAvVGCRa2', 'eason.tai@wdt.apu', 1),
 (100007, 'vin1', '$2y$10$Frcd3PxT0BudV3KY9PWNe.nUE6wW4M7fztfLxvdel7Nzm./mvv.HK', 'vin_diesel@fast.x', 1),
 (100008, 'flozz', '$2y$10$wNWAbskdq.adwXZfs8ttquN.Pbg/p2WKUdshxU9.h1i9TwNuy8RJy', 'florence123.kxy@gmail.com', 1),
-(100009, 'Kenny123', '$2y$10$2FM.fobavEleY3qgbriBvOxzA581J1gDD2Qvx5Lblvu3Ou/KDBrp.', 'tp067072@mail.apu.edu.my', 1);
+(100009, 'Kenny123', '$2y$10$2FM.fobavEleY3qgbriBvOxzA581J1gDD2Qvx5Lblvu3Ou/KDBrp.', 'tp067072@mail.apu.edu.my', 1),
+(100010, 'jerry', '$2y$10$Hmrd8EyQBNQB7/yec6SfVOHO5y0EGkz7cU5uGs/F4CKSSdJzSHvLu', 'jerry@gmail.com', 1),
+(100011, 'thomas', '$2y$10$kguRdEW8uCy.5Aut3RJXaeL9cfAN1WXURsEMVcpaxkN.Pm.GA.UmK', 'thomas@gmail.com', 1);
 
 --
 -- Indexes for dumped tables
@@ -124,13 +137,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `sche_id` int(20) NOT NULL AUTO_INCREMENT COMMENT 'unique schedule id', AUTO_INCREMENT=8;
+  MODIFY `sche_id` int(20) NOT NULL AUTO_INCREMENT COMMENT 'unique schedule id', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index', AUTO_INCREMENT=100010;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index', AUTO_INCREMENT=100012;
 
 --
 -- Constraints for dumped tables
