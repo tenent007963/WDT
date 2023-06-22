@@ -9,15 +9,14 @@ $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 if (isset($_POST["sche_id"])) {
     $sche_id = $_POST['sche_id'];
-    $date2 = ($_POST['date2'] != "") ? "'".$_POST['date2']."'" : null;
-    $time2 = ($_POST['time2'] != "") ? "'".$_POST['time2']."'" : null;
+    $date2 = ($_POST['date2'] != "") ? "`date2`= '".$_POST['date2']."'," : "";
+    $time2 = ($_POST['time2'] != "") ? "`time2`= '".$_POST['time2']."'," : "";
     $tech_cmt = ($_POST['tech_cmt'] != "") ? $_POST['tech_cmt'] : "";
     $appoint_to = $_POST['appoint_to'];
     $status = $_POST['status'];
     $query = "UPDATE `appointments` SET
         `appoint_to`= '$appoint_to',
-        `date2`= $date2,
-        `time2`= $time2,
+        $date2 "." $time2
         `tech_cmt`= '$tech_cmt',
         `status`= '$status'
         WHERE sche_id = '$sche_id';";

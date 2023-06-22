@@ -21,7 +21,7 @@ if (isset($_POST['sid'])) {
   }
   
   if (mysqli_num_rows($raw_data) == 1) {
-    $data = $result->fetch_array(MYSQLI_ASSOC); ?>
+    $data = $raw_data->fetch_array(MYSQLI_ASSOC); ?>
     <form class="form-horizontal" id="main-form" action="/views/users/usrMgmt.php" method="post" onsubmit="return superFancy(event)">
     <fieldset>
 
