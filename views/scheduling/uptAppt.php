@@ -11,8 +11,8 @@ if (isset($_POST["sche_id"])) {
     $sche_id = $_POST['sche_id'];
     $date2 = $_POST['date2'];
     $time2 = $_POST['time2'];
-    $tech_cmt = (isset($_POST['tech_cmt'])) ? $_POST['tech_cmt'] : "";
-    $appoint_to = $_POST['user_name'];
+    $tech_cmt = ($_POST['tech_cmt'] != "") ? $_POST['tech_cmt'] : "";
+    $appoint_to = $_POST['appoint_to'];
     $status = $_POST['status'];
     $query = "UPDATE `appointments` SET
         `appoint_to`= '$appoint_to',
