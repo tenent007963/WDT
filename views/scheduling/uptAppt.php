@@ -19,15 +19,14 @@ if (isset($_POST["sche_id"])) {
         `date2`= '$date2',
         `time2`= '$time2',
         `tech_cmt`= '$tech_cmt',
-        `status`= '$status',
+        `status`= '$status'
         WHERE sche_id = '$sche_id';";
-    echo $query; //delete this
     $result = $db_connection->query($query);
     if ($db_connection -> connect_errno || $db_connection -> errno) {
         echo "<h3 class='alert'>DB Server error:".$db_connection -> connect_error. $db_connection -> errno."</h3>";
         echo "<h4>Error db:". $db_connection -> connect_error ."</h4>";
         echo "<h4>Error query:". $db_connection -> errno ."</h4>";
-        echo "<h3>System error, please try again later.</h3>";
+        echo "<h3>System error, possible issue: Empty columns, system maintenance. </h3>";
         exit();
     } else {
         echo "<h3 class='alert'>Updated appointment.</h3>";
